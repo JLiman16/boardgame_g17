@@ -6,17 +6,17 @@
     <%= form_for(:session, url: login_path) do |f| %>
 
       <table>
-        <tr>  
+        <tr>
           <td><%= f.label :username %></td>
           <td><%= f.text_field :username, class: 'form-control' %></td>
         </tr>
-      
+
         <tr>
           <td><%= f.label :password %></td>
           <td><%= f.password_field :password, class: 'form-control' %></td>
         </tr>
       </table>
-      
+
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
