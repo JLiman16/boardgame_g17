@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020084847) do
+ActiveRecord::Schema.define(version: 20151030175615) do
+
+  create_table "bgg_accounts", force: :cascade do |t|
+    t.string   "account_name"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

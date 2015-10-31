@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @bgg_accounts = @user.bgg_accounts
+    @bgg_account = current_user.bgg_accounts.build if logged_in?
   end
 
   def new
@@ -43,14 +45,6 @@ class UsersController < ApplicationController
     end
 
     # Before filters
-
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
 
     # Confirms the correct user.
     def correct_user

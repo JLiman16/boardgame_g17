@@ -1,2 +1,17 @@
 <%= render "shared/navbar" %>
 <p>Hello <%= @user.username %>, we don't have much here right now, but we promise we will soon!</p>
+
+<p>Add a Boardgame geek account to sync with here.</p>
+<%= form_for(@bgg_account) do |f| %>
+  <div class="field">
+    <%= f.label :account_name %>
+    <%= f.text_field :account_name %>
+  </div>
+  <%= f.submit "Add Account", class: "btn btn-primary" %>
+<% end %>
+
+<% for account in @bgg_accounts do %>
+<%= account.account_name %> 
+<%= link_to "delete", account, method: :delete, data: { confirm: "You sure?" } %>
+</br>
+<% end %>

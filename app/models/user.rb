@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :bgg_accounts, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.username = username.downcase }
   validates :username,  presence: true, length: { maximum: 50 },
