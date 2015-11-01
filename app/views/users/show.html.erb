@@ -24,7 +24,9 @@
   </table>
 
   <% for account in @bgg_accounts do %>
-    <%= account.account_name %></br>
-    <%= BggApi.collection(account.account_name) %>
+    <% doc = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi2/collection?username=' + account.account_name)) %>
+    <% for game in doc.css('name') do %>
+      <%= game.text %> <br>
+    <% end %>
   <% end %>
 <% end %>
