@@ -1,17 +1,30 @@
 <%= render "shared/navbar" %>
-<p>Hello <%= @user.username %>, we don't have much here right now, but we promise we will soon!</p>
 
-<p>Add a Boardgame geek account to sync with here.</p>
-<%= form_for(@bgg_account) do |f| %>
-  <div class="field">
-    <%= f.label :account_name %>
-    <%= f.text_field :account_name %>
-  </div>
+<p>
+  <div>Add a Boardgame geek account to sync with here.</div>
+  <%= form_for(@bgg_account) do |f| %>
+    <div class="field">
+      <%= f.label :account_name %>
+      <%= f.text_field :account_name %>
+    </div>
   <%= f.submit "Add Account", class: "btn btn-primary" %>
-<% end %>
+  <% end %>
+</p>
 
-<% for account in @bgg_accounts do %>
-<%= account.account_name %> 
-<%= link_to "delete", account, method: :delete, data: { confirm: "You sure?" } %>
-</br>
+
+<% if @bgg_accounts.count > 0 %>
+  <table>
+    <th>Account Name</th>
+    <% for account in @bgg_accounts do %>
+    <tr>
+      <td><%= account.account_name %></td> 
+      <td><%= link_to "delete", account, method: :delete, data: { confirm: "You sure?" } %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <% for account in @bgg_accounts do %>
+    <%= account.account_name %></br>
+    <%= BggApi.collection(account.account_name) %>
+  <% end %>
 <% end %>

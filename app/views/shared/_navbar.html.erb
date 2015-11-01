@@ -1,11 +1,22 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
 <div class="container">
     <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
     <% if logged_in? %>
-        <%= link_to "Log out", logout_path, method: "delete" %> 
-        <%= link_to "Profile", current_user %> 
-        <%= link_to "Edit Profile", edit_user_path(current_user) %> 
+        <table>
+            <tr>
+                <td><b><%= @user.username %></b></td>
+                <td><%= link_to "Log out", logout_path, method: "delete" %></td> 
+                <td><%= link_to "Profile", current_user %></td> 
+                <td><%= link_to "Edit Profile", edit_user_path(current_user) %></td>
+            </tr>
+        </table>
       <% else %>
         <%= link_to "Log in", login_path %>
     <% end %>

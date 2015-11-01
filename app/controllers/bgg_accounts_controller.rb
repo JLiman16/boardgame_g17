@@ -12,7 +12,7 @@ class BggAccountsController < ApplicationController
     end
     
     def destroy
-        @bgg_account = current_user.bgg_accounts.find_by(id: params[:id])
+        @bgg_account= current_user.bgg_accounts.find_by(id: params[:id])
         @bgg_account.destroy
         flash[:success] = "Account deleted"
         redirect_to current_user
