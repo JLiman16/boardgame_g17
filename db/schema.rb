@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030175615) do
+ActiveRecord::Schema.define(version: 20151104040450) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -21,6 +21,28 @@ ActiveRecord::Schema.define(version: 20151030175615) do
   end
 
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
+
+  create_table "collections", force: :cascade do |t|
+    t.integer  "bgg_account_id"
+    t.string   "bggid"
+    t.string   "bgname"
+    t.string   "yearpublished"
+    t.string   "minplayers"
+    t.string   "maxplayers"
+    t.string   "playingtime"
+    t.string   "minplayingtime"
+    t.string   "maxplayingtime"
+    t.string   "minage"
+    t.text     "boardgamecategory"
+    t.text     "boardgamemechanic"
+    t.text     "boardgamedesigner"
+    t.text     "boardgamepublisher"
+    t.text     "boardgameexpansion"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "collections", ["bgg_account_id"], name: "index_collections_on_bgg_account_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

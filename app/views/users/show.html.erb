@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 
 <p>
-  <div>Add a Boardgame geek account to sync with here.</div>
+  <div>Add a Boardgame geek account to sync with here. Please note, the first time syncing may take a while.</div>
   <%= form_for(@bgg_account) do |f| %>
     <div class="field">
       <%= f.label :account_name %>
@@ -22,11 +22,4 @@
     </tr>
     <% end %>
   </table>
-
-  <% for account in @bgg_accounts do %>
-    <% doc = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi2/collection?username=' + account.account_name)) %>
-    <% for game in doc.css('name') do %>
-      <%= game.text %> <br>
-    <% end %>
-  <% end %>
 <% end %>
