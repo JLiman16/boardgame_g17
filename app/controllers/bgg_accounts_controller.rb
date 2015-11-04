@@ -19,7 +19,7 @@ class BggAccountsController < ApplicationController
         end
         
         if @bgg_account.save
-            @bgg_account.build_collection(collection_docs)
+            @bgg_account.delay.build_collection(collection_docs)
             flash[:success] = "Boardgame Geek Account saved"
             redirect_to current_user
         else
