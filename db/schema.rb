@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104040450) do
+ActiveRecord::Schema.define(version: 20151104073051) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151104040450) do
 
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
 
-  create_table "collections", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
     t.integer  "bgg_account_id"
     t.string   "bggid"
     t.string   "bgname"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20151104040450) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "collections", ["bgg_account_id"], name: "index_collections_on_bgg_account_id"
+  add_index "games", ["bgg_account_id"], name: "index_games_on_bgg_account_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

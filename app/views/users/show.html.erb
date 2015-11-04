@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 
 <p>
-  <div>Add a Boardgame geek account to sync with here. Please note, the first time syncing may take a while.</div>
+  <div>Add a Boardgame geek account to sync with here. Please note, syncing accounts can take significant amounts of time. Especially for large collections</div>
   <%= form_for(@bgg_account) do |f| %>
     <div class="field">
       <%= f.label :account_name %>
@@ -16,10 +16,36 @@
   <table>
     <th>Account Name</th>
     <% for account in @bgg_accounts do %>
-    <tr>
-      <td><%= account.account_name %></td> 
-      <td><%= link_to "delete", account, method: :delete, data: { confirm: "You sure?" } %></td>
-    </tr>
+      <tr>
+        <td><%= account.account_name %></td> 
+        <td><%= link_to "Delete", account, method: :delete, data: { confirm: "You sure?" } %></td>
+      </tr>
     <% end %>
   </table>
+  <table>
+    <th><%= link_to "Name", :sort => 'bgname' %></th>
+    <th><%= link_to "Year", :sort => 'yearpublished' %></th>
+    <th><%= link_to "Minimum Age", :sort => 'minage' %></th>
+    <th><%= link_to "Min Players", :sort => 'minplayers' %></th>
+    <th><%= link_to "Max Players", :sort => 'maxplayers' %></th>
+    <th><%= link_to "Game Time", :sort => 'playingtime' %></th>
+    <th>Categories</th>
+    <% for account in @bgg_accounts do%>
+      <% for game in account.games.order(params[:sort]) do %>
+        <tr>
+          <td><%= game.bgname %></td>
+          <td><%= game.yearpublished %></td>
+          <td><%= game.minage %></td>
+          <td><%= game.minplayers %></td>
+          <td><%= game.maxplayers %></td>
+          <td><%= game.playingtime %></td>
+          <td>
+          <% for category in game.boardgamecategory do %>
+            <%= category %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>  
 <% end %>
