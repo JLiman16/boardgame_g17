@@ -4,6 +4,7 @@ class BggAccountsController < ApplicationController
     def create
         @bgg_account = current_user.bgg_accounts.build(bgg_account_params)
         
+        #Check 
         xml_file = open('https://www.boardgamegeek.com/xmlapi2/collection?username=' + @bgg_account.account_name)
         collection_docs = Nokogiri::HTML(xml_file)
         if collection_docs.css('message').text == "Invalid username specified"
