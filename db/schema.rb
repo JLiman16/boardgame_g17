@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104073051) do
+ActiveRecord::Schema.define(version: 20151104184535) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(version: 20151104073051) do
   end
 
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "games", force: :cascade do |t|
     t.integer  "bgg_account_id"
