@@ -1,7 +1,24 @@
 <style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+div {
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+	border: 2px solid #000000;
+	font-family: Futura, Tahoma, sans-serif;
+	color: blue;
+	padding: 5px;
+	border-radius: 5px 5px;
+	background-color: #FF99CC;
+}
+
+li:hover{
+    background-color: #FF66CC;
+    /*font-size: 21px;*/
 }
 </style>
 <div class="container">
@@ -9,14 +26,14 @@ table, th, td {
     <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
     <% if logged_in? %>
-        <table>
-            <tr>
-                <td><b><%= @user.username %></b></td>
-                <td><%= link_to "Log out", logout_path, method: "delete" %></td> 
-                <td><%= link_to "Profile", current_user %></td> 
-                <td><%= link_to "Edit Profile", edit_user_path(current_user) %></td>
-            </tr>
-        </table>
+        <div id="navbar">
+            <ul>
+                <li><b><%= @user.username %></b></li>
+                <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+                <li><%= link_to "Profile", current_user %></li> 
+                <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            </ul>
+        </div>
       <% else %>
         <%= link_to "Log in", login_path %>
     <% end %>
