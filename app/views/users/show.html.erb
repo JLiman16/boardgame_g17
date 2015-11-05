@@ -31,6 +31,7 @@
     <th><%= link_to "Max Players", :sort => 'maxplayers' %></th>
     <th><%= link_to "Game Time", :sort => 'playingtime' %></th>
     <th>Categories</th>
+    <th>Mechanic</th>
     <% for account in @bgg_accounts do%>
       <% for game in account.games.order(params[:sort]) do %>
         <tr>
@@ -40,11 +41,18 @@
           <td><%= game.minplayers %></td>
           <td><%= game.maxplayers %></td>
           <td><%= game.playingtime %></td>
+          <% if game.boardgamecategory and game.boardgamemechanic %>
           <td>
           <% for category in game.boardgamecategory do %>
-            <%= category %>
+            <%= category %>,
           <% end %>
           </td>
+          <td>
+          <% for mechanic in game.boardgamemechanic do %>
+            <%= mechanic %>,
+          <% end %>
+          </td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>

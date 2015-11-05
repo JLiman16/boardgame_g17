@@ -24,6 +24,11 @@ class BggAccount < ActiveRecord::Base
               temp_array << category["value"]
           end
           @game.boardgamecategory = temp_array
+          temp_array = []
+          for mechanic in game_info.css("link[type='boardgamemechanic']") do
+              temp_array << mechanic["value"]
+          end
+          @game.boardgamemechanic = temp_array
           @game.save
           sleep(1)
       end
