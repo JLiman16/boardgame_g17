@@ -1,5 +1,9 @@
 <%= render "shared/navbar" %>
-
+<style>
+  table, th, td {
+   border: 1px solid black;
+  } 
+</style>
 <p>
   <div>Add a Boardgame geek account to sync with here. Please note, syncing accounts can take significant amounts of time. Especially for large collections</div>
   <div>Initially no results will show up, however refresh the page and as results are added they will appear</div>
@@ -32,8 +36,12 @@
     <th><%= link_to "Game Time", :sort => 'playingtime' %></th>
     <th>Categories</th>
     <th>Mechanic</th>
+    <% all_games = [] %>
     <% for account in @bgg_accounts do%>
-      <% for game in account.games.order(params[:sort]) do %>
+      <% all_games = all_games | account.games.order(params[:sort]) %>
+    <% end %>
+      <%# for game in account.games.order(params[:sort]) do %>
+      <% for game in all_games do %>
         <tr>
           <td><%= game.bgname %></td>
           <td><%= game.yearpublished %></td>
@@ -55,6 +63,5 @@
           <% end %>
         </tr>
       <% end %>
-    <% end %>
   </table>  
 <% end %>
