@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @bgg_accounts = @user.bgg_accounts
+    
+    @all_games = build_game_list
+    @stuffsuch = params[:maxage]
+    
     @bgg_account = current_user.bgg_accounts.build if logged_in?
   end
 
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   private
-
+    
     def user_params
       params.require(:user).permit(:username, :password,
                                    :password_confirmation)
@@ -58,5 +62,13 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless @user == current_user
+    end
+    
+    def build_game_list
+      temp = []
+      for account in @bgg_accounts do
+        temp = temp | account.games.where("minage <= ?", params[:maxage]).order(params[:sort])
+      end
+      return temp
     end
 end

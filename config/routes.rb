@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'signup'  => 'users#new'
+  post 'users/:id' => 'users#show'
 
   resources :users
   resources :bgg_accounts,          only: [:create, :destroy]

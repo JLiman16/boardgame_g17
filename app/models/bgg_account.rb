@@ -3,6 +3,9 @@ class BggAccount < ActiveRecord::Base
   has_many :games, dependent: :destroy
   validates :user_id, presence: true
   
+  def filter_games
+  end
+  
   def build_collection
       xml_file = open('https://www.boardgamegeek.com/xmlapi2/collection?username=' + self.account_name)
       collection_docs = Nokogiri::HTML(xml_file)

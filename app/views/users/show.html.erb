@@ -1,7 +1,8 @@
 <%= render "shared/navbar" %>
 <style>
-  table, th, td {
+  table, th, td{
    border: 1px solid black;
+   border-collapse: collapse;
   } 
 </style>
 <p>
@@ -16,32 +17,36 @@
   <% end %>
 </p>
 
-
 <% if @bgg_accounts.count > 0 %>
   <table>
     <th>Account Name</th>
     <% for account in @bgg_accounts do %>
       <tr>
         <td><%= account.account_name %></td> 
-        <td><%= link_to "Delete", account, method: :delete, data: { confirm: "You sure?" } %></td>
+        <td><%= link_to "Delete", account, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </table>
+  
+  <p>
+    <%= form_tag do %>
+      <%= number_field_tag(:maxage, in: 1..100) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+  </p>
+  <%= @stuffsuch %>
+  
   <table>
-    <th><%= link_to "Name", :sort => 'bgname' %></th>
-    <th><%= link_to "Year", :sort => 'yearpublished' %></th>
-    <th><%= link_to "Minimum Age", :sort => 'minage' %></th>
-    <th><%= link_to "Min Players", :sort => 'minplayers' %></th>
-    <th><%= link_to "Max Players", :sort => 'maxplayers' %></th>
-    <th><%= link_to "Game Time", :sort => 'playingtime' %></th>
+    <th><%= link_to "Name", params.merge(:sort => 'bgname') %></th>
+    <th><%= link_to "Year", params.merge(:sort => 'yearpublished') %></th>
+    <th><%= link_to "Minimum Age", params.merge(:sort => 'minage') %></th>
+    <th><%= link_to "Min Players", params.merge(:sort => 'minplayers') %></th>
+    <th><%= link_to "Max Players", params.merge(:sort => 'maxplayers') %></th>
+    <th><%= link_to "Game Time", params.merge(:sort => 'playingtime') %></th>
     <th>Categories</th>
     <th>Mechanic</th>
-    <% all_games = [] %>
-    <% for account in @bgg_accounts do%>
-      <% all_games = all_games | account.games.order(params[:sort]) %>
-    <% end %>
       <%# for game in account.games.order(params[:sort]) do %>
-      <% for game in all_games do %>
+      <% for game in @all_games do %>
         <tr>
           <td><%= game.bgname %></td>
           <td><%= game.yearpublished %></td>
