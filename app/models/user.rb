@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+  
+  def collect_games(search_params, sort_param)
+    return Game.where(bgg_account_id: self.bgg_accounts(&:id)).order(sort_param).distinct
+  end
 end

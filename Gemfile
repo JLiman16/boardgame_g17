@@ -18,6 +18,7 @@ gem 'jbuilder',                '2.2.3'
 gem 'sdoc',                    '0.4.0', group: :doc
 gem 'nokogiri'
 gem 'delayed_job_active_record'
+gem 'active_record_union'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

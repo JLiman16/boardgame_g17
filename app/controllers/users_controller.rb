@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @bgg_accounts = @user.bgg_accounts
-    
-    @all_games = build_game_list
+    #search_params = params.slice(:maxage)
+    @all_games = @user.collect_games(params[:maxage], params[:sort])
     @stuffsuch = params[:maxage]
     
     @bgg_account = current_user.bgg_accounts.build if logged_in?
