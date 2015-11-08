@@ -36,6 +36,6 @@ class User < ActiveRecord::Base
   end
   
   def collect_games(search_params, sort_param)
-    return Game.where(bgg_account_id: self.bgg_accounts(&:id)).order(sort_param).distinct
+    return Game.where(bgg_account_id: self.bgg_accounts(&:id)).order(sort_param)
   end
 end
