@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @all_games = @user.games
+    @all_games = @user.games.order(params[:sort])
   end
 
   def new
