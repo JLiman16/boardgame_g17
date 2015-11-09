@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :bgg_accounts
+  has_many :bgg_accounts, dependent: :destroy
   has_many :games, :through => :bgg_accounts
   accepts_nested_attributes_for :bgg_accounts , :games
   attr_accessor :remember_token

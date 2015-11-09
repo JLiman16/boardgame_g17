@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'signup'  => 'users#new'
-  post 'users/:id' => 'users#link_account'
+  get 'users/:id/link' => 'users#link_account', as: :link
   get 'users/:id/unlink' => 'users#unlink_account', as: :unlink
 
   resources :users

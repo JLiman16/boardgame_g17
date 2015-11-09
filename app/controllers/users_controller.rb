@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @all_games = @user.games.order(params[:sort])
+    @all_games = @user.games.order(params[:sort]).distinct
   end
 
   def new
@@ -72,6 +72,7 @@ class UsersController < ApplicationController
     end
     @user.accounts.delete(params[:account])
     @user.save
+    flash[:success] = "Account Deleted"
     redirect_to @user
   end
 

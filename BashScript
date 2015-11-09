@@ -1,8 +1,0 @@
-#!/bin/bash 
-for i in `seq 1 70`;
-        do
-                echo "a" >> useless.txt
-                git add . -A
-                git commit -m "I can't believe we are being marked for number of commits"
-                git push origin master
-        done 
