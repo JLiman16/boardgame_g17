@@ -58,12 +58,12 @@
         <td><%= game.playingtime %></td>
         <td>
           <% for category in game.boardgamecategory do %>
-            <%= category %>
+            <%= category %><% if not category == game.boardgamecategory.last %>, <% end %>
           <% end %>
         </td>
         <td>
           <% for mechanic in game.boardgamemechanic do %>
-            <%= mechanic %>
+            <%= mechanic %><% if not mechanic == game.boardgamemechanic.last %>, <% end %>
           <% end %>
         </td>
       </tr>
