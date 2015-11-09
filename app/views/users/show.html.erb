@@ -8,33 +8,32 @@
 <p>
   <div>Add a Boardgame geek account to sync with here. Please note, syncing accounts can take significant amounts of time. Especially for large collections</div>
   <div>Initially no results will show up, however refresh the page and as results are added they will appear</div>
-  <%= form_for(@bgg_account) do |f| %>
+  <%= form_tag do %>
     <div class="field">
-      <%= f.label :account_name %>
-      <%= f.text_field :account_name %>
+      <%= label_tag(:account_name, "Account name") %>
+      <%= text_field_tag(:account_name) %>
     </div>
-  <%= f.submit "Add Account", class: "btn btn-primary" %>
+    <%= submit_tag("Add Account") %>
   <% end %>
 </p>
 
-<% if @bgg_accounts.count > 0 %>
+<% if @user.accounts.count > 0 %>
   <table>
     <th>Account Name</th>
-    <% for account in @bgg_accounts do %>
+    <% for account in @user.accounts do %>
       <tr>
-        <td><%= account.account_name %></td> 
-        <td><%= link_to "Delete", account, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= account %></td> 
+        <td><%= link_to "Delete", unlink_path(:account => account), data: { confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </table>
   
   <p>
-    <%= form_tag do %>
-      <%= number_field_tag(:maxage, in: 1..100) %>
-      <%= submit_tag("Submit") %>
-    <% end %>
+    <%#= form_tag do %>
+      <%#= number_field_tag(:maxage, in: 1..100) %>
+      <%#= submit_tag("Submit") %>
+    <%# end %>
   </p>
-  <%= @stuffsuch %>
   
   <table>
     <th><%= link_to "Name", params.merge(:sort => 'bgname') %></th>

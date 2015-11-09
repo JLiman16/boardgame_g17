@@ -1,16 +1,15 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.references :bgg_account, index: true, foreign_key: true
       t.string :bggid
       t.string :bgname
-      t.string :yearpublished
-      t.string :minplayers
-      t.string :maxplayers
-      t.string :playingtime
-      t.string :minplayingtime
-      t.string :maxplayingtime
-      t.string :minage
+      t.integer :yearpublished
+      t.integer :minplayers
+      t.integer :maxplayers
+      t.integer :playingtime
+      t.integer :minplayingtime
+      t.integer :maxplayingtime
+      t.integer :minage
       t.text :boardgamecategory
       t.text :boardgamemechanic
       t.text :boardgamedesigner

@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104200006) do
+ActiveRecord::Schema.define(version: 20151109032633) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "game_id"
   end
-
+  
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20151104200006) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.text     "accounts"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true

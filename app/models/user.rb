@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
-  has_many :bgg_accounts, dependent: :destroy
+  has_many :bgg_accounts
+  has_many :games, :through => :bgg_accounts
+  accepts_nested_attributes_for :bgg_accounts , :games
   attr_accessor :remember_token
   validates :username,  presence: true, length: { maximum: 50 },
                         uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  serialize :accounts
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -35,7 +38,42 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
   
-  def collect_games(search_params, sort_param)
-    return Game.where(bgg_account_id: self.bgg_accounts(&:id)).order(sort_param)
+  def build_collection(username)
+    xml_file = open('https://www.boardgamegeek.com/xmlapi2/collection?username=' + username)
+    collection_docs = Nokogiri::HTML(xml_file)
+    
+    for game in collection_docs.css('item') do
+      game_info = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi2/thing?id=' + game['objectid']))
+      if Game.exists?(bggid: game['objectid']) then
+        self.bgg_accounts.create(game: Game.find_by_bggid(game['objectid']), account_name: username)
+        sleep(1)
+      else
+        new_game = Game.new
+        self.bgg_accounts.create(game: new_game, account_name: username)
+        new_game.bggid = game['objectid']
+        new_game.bgname = game_info.css('name')[0]["value"]
+        new_game.yearpublished = game_info.css('yearpublished')[0]["value"]
+        new_game.minplayers = game_info.css('minplayers')[0]["value"]
+        new_game.maxplayers = game_info.css('maxplayers')[0]["value"]
+        new_game.playingtime = game_info.css('playingtime')[0]["value"]
+        new_game.minplayingtime = game_info.css('minplaytime')[0]["value"]
+        new_game.maxplayingtime = game_info.css('maxplaytime')[0]["value"]
+        new_game.minage = game_info.css('minage')[0]["value"]
+        temp_array = []
+        for category in game_info.css("link[type='boardgamecategory']") do
+          temp_array << category["value"]
+        end
+        new_game.boardgamecategory = temp_array
+        temp_array = []
+        for mechanic in game_info.css("link[type='boardgamemechanic']") do
+          temp_array << mechanic["value"]
+        end
+        new_game.boardgamemechanic = temp_array
+        new_game.save()
+        #Bgg will return an error if the site is queried too often
+        sleep(1)
+      end
+    end
   end
+  handle_asynchronously :build_collection
 end

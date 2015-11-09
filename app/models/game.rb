@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
-  belongs_to :bgg_account
+  has_many :bgg_accounts
+  has_many :users, :through => :bgg_accounts
   serialize :boardgamecategory
   serialize :boardgamemechanic
   serialize :boardgamedesigner
