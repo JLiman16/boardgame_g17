@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20151109032633) do
     t.datetime "updated_at",   null: false
     t.integer  "game_id"
   end
-  
+
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
