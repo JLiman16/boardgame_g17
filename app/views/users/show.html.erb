@@ -40,12 +40,12 @@
   </p>
   
   <table>
-    <th><%= link_to "Name", params.merge(:sort => 'bgname') %></th>
-    <th><%= link_to "Year", params.merge(:sort => 'yearpublished') %></th>
-    <th><%= link_to "Minimum Age", params.merge(:sort => 'minage') %></th>
-    <th><%= link_to "Min Players", params.merge(:sort => 'minplayers') %></th>
-    <th><%= link_to "Max Players", params.merge(:sort => 'maxplayers') %></th>
-    <th><%= link_to "Game Time", params.merge(:sort => 'playingtime') %></th>
+    <th><%= sortable("Name", "bgname") %></th>
+    <th><%= sortable("Year", 'yearpublished') %></th>
+    <th><%= sortable("Minimum Age", 'minage') %></th>
+    <th><%= sortable("Min Players", 'minplayers') %></th>
+    <th><%= sortable("Max Players", 'maxplayers') %></th>
+    <th><%= sortable("Game Time", 'playingtime') %></th>
     <th>Categories</th>
     <th>Mechanic</th>
     <% for game in @all_games do %>
