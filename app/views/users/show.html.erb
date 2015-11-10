@@ -41,12 +41,10 @@
       <%= number_field_tag(:max_age, "Max", in: 1..100) %></br>
       <%= label_tag(:min_age, "Minimum Age") %>
       <%= number_field_tag(:min_age, "Min", in: 0..100) %></br>
-      <%= label_tag(:min_players, "Minimum Players") %>
-      <%= number_field_tag(:min_players, "Min",  in: 0..100) %></br>
-      <%= label_tag(:max_players, "Maximum Players") %>
-      <%= number_field_tag(:max_players, "Max", in: 0..10000) %></br>
+      <%= label_tag(:num_players, "Number of Players") %>
+      <%= number_field_tag(:num_players, "Min",  in: 0..1000) %></br>
       <%= label_tag(:min_time, "Minimum time (mins)") %>
-      <%= number_field_tag(:min_time, "Min", in: 0..1000) %></br>
+      <%= number_field_tag(:min_time, "Min", in: 0..10000) %></br>
       <%= label_tag(:max_time, "Maximum time (mins)") %>
       <%= number_field_tag(:max_time, "Max", in: 0..10000) %></br>
       <%= label_tag(:game_mechanic, "Mechanic") %>

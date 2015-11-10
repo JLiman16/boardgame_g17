@@ -11,15 +11,19 @@ class Game < ActiveRecord::Base
     where("minage <= ? and minage >= ?", maxage, minage)
   end
   
-  def self.players_range(max_players, min_players)
-    where("minplayers <= ? and maxplayers <= ?", min_players, max_players)
+  def self.players_range(num_players)
+    where("minplayers <= ? and maxplayers >= ?", num_players, num_players)
   end
   
   def self.time_range(max_time, min_time)
-    #where("")
+    where(playingtime: min_time..max_time )
   end
   
   def self.filter_mechanics(mechanic)
     self.joins(:mechanics).where("boardgamemechanic = ?", mechanic)
+  end
+  
+  def self.filter_categories(category)
+    self.joins(:categories).where("boardgamecategory = ?", category)
   end
 end
