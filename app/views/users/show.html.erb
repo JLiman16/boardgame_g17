@@ -21,6 +21,8 @@
   <%= link_to "Refresh" %>
 <% end %>
 
+<%= link_to "View Collection Images", collection_path %></br>
+
 <% if @user.accounts.count > 0 and not Delayed::Job.exists? %>
   <table>
     <th>Account Name</th>
@@ -36,24 +38,33 @@
     <div>Filters</div>
     <%= form_tag(filter_path) do %>
       <%= label_tag(:max_age, "Maximum Age") %>
-      <%= number_field_tag(:max_age, in: 1..100) %></br>
+      <%= number_field_tag(:max_age, "Max", in: 1..100) %></br>
       <%= label_tag(:min_age, "Minimum Age") %>
-      <%= number_field_tag(:min_age, in: 0..100) %></br>
+      <%= number_field_tag(:min_age, "Min", in: 0..100) %></br>
       <%= label_tag(:min_players, "Minimum Players") %>
-      <%= number_field_tag(:min_players, in: 0..100) %></br>
+      <%= number_field_tag(:min_players, "Min",  in: 0..100) %></br>
       <%= label_tag(:max_players, "Maximum Players") %>
-      <%= number_field_tag(:max_players, in: 0..100) %></br>
+      <%= number_field_tag(:max_players, "Max", in: 0..10000) %></br>
       <%= label_tag(:min_time, "Minimum time (mins)") %>
-      <%= number_field_tag(:min_time, in: 0..1000) %></br>
+      <%= number_field_tag(:min_time, "Min", in: 0..1000) %></br>
       <%= label_tag(:max_time, "Maximum time (mins)") %>
-      <%= number_field_tag(:max_time, in: 0..1000) %></br>
+      <%= number_field_tag(:max_time, "Max", in: 0..10000) %></br>
       <%= label_tag(:game_mechanic, "Mechanic") %>
       <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic") %></br>
       <%= label_tag(:game_category, "Category") %>
-      <%= select_tag(:game_cateogry, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category") %></br>
+      <%= select_tag(:game_category, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category") %></br>
       <%= submit_tag("Submit") %>
     <% end %>
   </p>
+  <div>
+    Current Filters:
+    <% unless params[:game_mechanic].blank? %>
+      Mechanic = <%=params[:game_mechanic] %>
+    <% end %>
+    <% unless params[:game_category].blank? %>
+      Category = <%=params[:game_category] %>
+    <% end %>
+  </div>
   
   <table>
     <th><%= sortable("Name", "bgname") %></th>

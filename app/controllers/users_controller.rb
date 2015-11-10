@@ -85,6 +85,11 @@ class UsersController < ApplicationController
     session[:params].delete_if { |key, value| value.blank? }
     redirect_to @user
   end
+  
+  def collection
+    @user = User.find(params[:id])
+    @all_games = @user.games
+  end
 
   private
     

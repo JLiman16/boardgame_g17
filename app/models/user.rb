@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
         new_game.minplayingtime = game_info.css('minplaytime')[0]["value"]
         new_game.maxplayingtime = game_info.css('maxplaytime')[0]["value"]
         new_game.minage = game_info.css('minage')[0]["value"]
+        new_game.thumbnail = game_info.css('thumbnail').first.text
         
         for mechanic in game_info.css("link[type='boardgamemechanic']") do
           if Mechanic.exists?(boardgamemechanic: mechanic["value"])

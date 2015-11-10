@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/:id/link' => 'users#link_account', as: :link
   get 'users/:id/unlink' => 'users#unlink_account', as: :unlink
   post 'users/:id/filter' => 'users#filter', as: :filter
+  get 'users/:id/collection' => 'users#collection', as: :collection
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
