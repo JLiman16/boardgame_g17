@@ -35,8 +35,10 @@
   <p>
     <div>Filters</div>
     <%= form_tag(filter_path) do %>
-      <%= label_tag(:max_age, "Max Age") %>
+      <%= label_tag(:max_age, "Maximum Age") %>
       <%= number_field_tag(:max_age, in: 1..100) %></br>
+      <%= label_tag(:min_age, "Minimum Age") %>
+      <%= number_field_tag(:min_age, in: 0..100) %></br>
       <%= label_tag(:min_players, "Minimum Players") %>
       <%= number_field_tag(:min_players, in: 0..100) %></br>
       <%= label_tag(:max_players, "Maximum Players") %>
@@ -46,9 +48,9 @@
       <%= label_tag(:max_time, "Maximum time (mins)") %>
       <%= number_field_tag(:max_time, in: 0..1000) %></br>
       <%= label_tag(:game_mechanic, "Mechanic") %>
-      <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic)) %></br>
+      <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic") %></br>
       <%= label_tag(:game_category, "Category") %>
-      <%= select_tag(:game_cateogry, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory)) %></br>
+      <%= select_tag(:game_cateogry, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category") %></br>
       <%= submit_tag("Submit") %>
     <% end %>
   </p>
