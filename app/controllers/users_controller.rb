@@ -77,6 +77,12 @@ class UsersController < ApplicationController
     flash[:success] = "Account Deleted"
     redirect_to @user
   end
+  
+  def filter
+    @user = User.find(params[:id])
+    @all_games
+    redirect_to @user
+  end
 
   private
     

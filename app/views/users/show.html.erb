@@ -33,10 +33,24 @@
   </table>
   
   <p>
-    <%#= form_tag do %>
-      <%#= number_field_tag(:maxage, in: 1..100) %>
-      <%#= submit_tag("Submit") %>
-    <%# end %>
+    <div>Filters</div>
+    <%= form_tag(filter_path) do %>
+      <%= label_tag(:max_age, "Max Age") %>
+      <%= number_field_tag(:max_age, in: 1..100) %></br>
+      <%= label_tag(:min_players, "Minimum Players") %>
+      <%= number_field_tag(:min_players, in: 0..100) %></br>
+      <%= label_tag(:max_players, "Maximum Players") %>
+      <%= number_field_tag(:max_players, in: 0..100) %></br>
+      <%= label_tag(:min_time, "Minimum time (mins)") %>
+      <%= number_field_tag(:min_time, in: 0..1000) %></br>
+      <%= label_tag(:max_time, "Maximum time (mins)") %>
+      <%= number_field_tag(:max_time, in: 0..1000) %></br>
+      <%= label_tag(:game_mechanic, "Mechanic") %>
+      <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic)) %></br>
+      <%= label_tag(:game_category, "Category") %>
+      <%= select_tag(:game_cateogry, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory)) %></br>
+      <%= submit_tag("Submit") %>
+    <% end %>
   </p>
   
   <table>
@@ -47,7 +61,7 @@
     <th><%= sortable("Max Players", 'maxplayers') %></th>
     <th><%= sortable("Game Time", 'playingtime') %></th>
     <th>Categories</th>
-    <th>Mechanic</th>
+    <th>Mechanics</th>
     <% for game in @all_games do %>
       <tr>
         <td><%= game.bgname %></td>
@@ -57,13 +71,13 @@
         <td><%= game.maxplayers %></td>
         <td><%= game.playingtime %></td>
         <td>
-          <% for category in game.boardgamecategory do %>
-            <%= category %><% if not category == game.boardgamecategory.last %>, <% end %>
+          <% for category in game.categories do %>
+            <%= category.boardgamecategory %><% if not category == game.categories.last %>, <% end %>
           <% end %>
         </td>
         <td>
-          <% for mechanic in game.boardgamemechanic do %>
-            <%= mechanic %><% if not mechanic == game.boardgamemechanic.last %>, <% end %>
+          <% for mechanic in game.mechanics do %>
+            <%= mechanic.boardgamemechanic %><% if not mechanic == game.mechanics.last %>, <% end %>
           <% end %>
         </td>
       </tr>

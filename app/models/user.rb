@@ -59,16 +59,23 @@ class User < ActiveRecord::Base
         new_game.minplayingtime = game_info.css('minplaytime')[0]["value"]
         new_game.maxplayingtime = game_info.css('maxplaytime')[0]["value"]
         new_game.minage = game_info.css('minage')[0]["value"]
-        temp_array = []
-        for category in game_info.css("link[type='boardgamecategory']") do
-          temp_array << category["value"]
-        end
-        new_game.boardgamecategory = temp_array
-        temp_array = []
+        
         for mechanic in game_info.css("link[type='boardgamemechanic']") do
-          temp_array << mechanic["value"]
+          if Mechanic.exists?(boardgamemechanic: mechanic["value"])
+            new_game.mechanics << Mechanic.find_by_boardgamemechanic(mechanic["value"])
+          else
+            new_game.mechanics.create(boardgamemechanic: mechanic["value"])
+          end
         end
-        new_game.boardgamemechanic = temp_array
+        
+        for category in game_info.css("link[type='boardgamecategory']") do
+          if Category.exists?(boardgamecategory: category["value"])
+            new_game.categories << Category.find_by_boardgamecategory(category["value"])
+          else
+            new_game.categories.create(boardgamecategory: category["value"])
+          end
+        end
+
         new_game.save()
         #Bgg will return an error if the site is queried too often
         sleep(1)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109032633) do
+ActiveRecord::Schema.define(version: 20151110050928) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20151109032633) do
   end
 
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "boardgamecategory"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "categories_games", id: false, force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "game_id"
+  end
+
+  add_index "categories_games", ["category_id"], name: "index_categories_games_on_category_id"
+  add_index "categories_games", ["game_id"], name: "index_categories_games_on_game_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -60,6 +74,20 @@ ActiveRecord::Schema.define(version: 20151109032633) do
   end
 
   add_index "games", ["bgg_account_id"], name: "index_games_on_bgg_account_id"
+
+  create_table "games_mechanics", id: false, force: :cascade do |t|
+    t.integer "mechanic_id"
+    t.integer "game_id"
+  end
+
+  add_index "games_mechanics", ["game_id"], name: "index_games_mechanics_on_game_id"
+  add_index "games_mechanics", ["mechanic_id"], name: "index_games_mechanics_on_mechanic_id"
+
+  create_table "mechanics", force: :cascade do |t|
+    t.string   "boardgamemechanic"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
