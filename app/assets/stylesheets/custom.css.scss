@@ -2,9 +2,8 @@
 @import "bootstrap";*/
 
 body {
-  background-image: url(background2.jpg);
-  background-size: contain;
-  background-repeat: repeat-y;
+  background: url(background2.jpg) no-repeat center center fixed; 
+  background-size: 100%;
 }
 
 .row {

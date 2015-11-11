@@ -10,10 +10,10 @@
   
 </style>
 <p>
-  <div><p1><a href="http://www.weeiy.com/gank">Add a Boardgame geek account to sync with here!</a></p1></div>
+  <div><p1><a>Add a Boardgame geek account to sync with here!</a></p1></div>
   <%= form_tag(link_path, method: "get") do %>
     <div class="field">
-    <div><p2><a href="http://www.weeiy.com/gank"><%= label_tag(:account_name, "Account name") %>  </a></p2></div>
+    <div><p2><a><%= label_tag(:account_name, "Account name") %>  </a></p2></div>
       <%= text_field_tag(:account_name) %>
     <%= submit_tag("Add Account") %>
   <% end %>
@@ -24,7 +24,7 @@
   <%= link_to "Refresh" %>
 <% end %>
 
-<div><p2><a href="http://www.weeiy.com/gank"><%= link_to "View Collection Images", collection_path %></br>  </a></p2></div>
+<div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
 
 
 <% if @user.accounts.count > 0 and not Delayed::Job.exists? %>
