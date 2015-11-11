@@ -63,7 +63,21 @@
   </div>
   <div class="filter">
     Current Filters:
-    </br>
+     <% unless params[:max_age].to_i == 1000 %>
+      Age < <%=params[:max_age] %>
+    <% end %>
+    <% unless params[:min_age].to_i == 0 %>
+      Age > <%=params[:min_age] %>
+    <% end %>
+    <% unless params[:num_players].to_i == 0 %>
+      Number of players = <%=params[:num_players] %>
+    <% end %>
+    <% unless params[:min_time].to_i == 0 %>
+      Time > <%=params[:min_time] %>
+    <% end %>
+    <% unless params[:max_time].to_i == 10000 %>
+      Time < <%=params[:max_time] %>
+    <% end %>
     <% unless params[:game_mechanic].blank? %>
       Mechanic = <%=params[:game_mechanic] %>
     <% end %>
