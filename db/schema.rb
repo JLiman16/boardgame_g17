@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111021821) do
+ActiveRecord::Schema.define(version: 20151110105351) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -36,11 +36,6 @@ ActiveRecord::Schema.define(version: 20151111021821) do
 
   add_index "categories_games", ["category_id"], name: "index_categories_games_on_category_id"
   add_index "categories_games", ["game_id"], name: "index_categories_games_on_game_id"
-
-  create_table "collections", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
