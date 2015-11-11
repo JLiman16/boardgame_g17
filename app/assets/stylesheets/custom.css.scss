@@ -1,4 +1,78 @@
+/*@import "bootstrap-sprockets";
+@import "bootstrap";*/
+
+body {
+  background-image: url(background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.row {
+  border: 2px solid #000000;
+  border-radius: 10px;
+  background-color: gray;
+  margin: auto;
+  width: 350px;
+}
+
 #logo {
   display: block; 
   text-align: center;
+}
+
+#navbar-options {
+    list-style-type: none;
+}
+
+#nav-user {
+  display: inline;
+	font-family: Futura, Tahoma, sans-serif;
+	color: white;
+	padding: 5px;
+}
+
+.opts {
+  display: inline;
+	border: 2px solid #000000;
+	font-family: Futura, Tahoma, sans-serif;
+	color: blue;
+	padding: 5px;
+	border-radius: 5px 5px;
+	background-color: #FF99CC;
+}
+
+.opts:hover {
+    background-color: #FF66CC;
+    /*font-size: 21px;*/
+}
+
+.btn {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #66CCFF;
+  font-size: 20px;
+  font-family: Futury;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #3399FF;
+}
+
+.btn:active {
+  background-color: #0066FF;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.alert-danger {
+  background-color: #FFCCCC;
+  color: #FF3300;
+}
+
+.alert-success {
+  background-color: #99FFCC;
+  color: #00CC00;
 }
