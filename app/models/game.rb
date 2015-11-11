@@ -7,6 +7,9 @@ class Game < ActiveRecord::Base
   serialize :boardgameexpansion
   serialize :boardgamepublisher
   
+  validates :bggid,  presence: true
+  validates :bgname,  presence: true
+  
   def self.age_range(maxage, minage)
     where("minage <= ? and minage >= ?", maxage, minage)
   end
