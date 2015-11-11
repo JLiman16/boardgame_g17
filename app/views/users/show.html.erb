@@ -61,11 +61,13 @@
       <% end %>
     </p>
   </div>
-  <div>
+  <div class="filter">
     Current Filters:
+    </br>
     <% unless params[:game_mechanic].blank? %>
       Mechanic = <%=params[:game_mechanic] %>
     <% end %>
+    </br>
     <% unless params[:game_category].blank? %>
       Category = <%=params[:game_category] %>
     <% end %>
