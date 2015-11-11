@@ -68,21 +68,39 @@ h1 a:hover{
 /*log in*/
 
 
-user_name{  
+p1{  
   
-  text-align:center;
-  font-size:4em;
+  text-align:left;
+  font-size:2em;
   margin:20px 0 20px 0; 
 }
 
-user_name a{
+p1 a{
   color:#228DFF;
   font-family:Cursive;
 }
-user_name a:hover{ 
+p1 a:hover{ 
   -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
   -moz-animation: neon2 1.5s ease-in-out infinite alternate;
   animation: neon2 1.5s ease-in-out infinite alternate; 
+}
+
+
+p2{  
+  
+  text-align:left;
+  font-size:1em;
+  margin:20px 0 20px 0; 
+}
+
+p2 a{
+  color:#FF1177;
+  font-family:Cursive;
+}
+p2 a:hover{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate; 
 }
 
 /*td*/
