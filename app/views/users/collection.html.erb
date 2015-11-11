@@ -1,13 +1,12 @@
 <%= render "shared/navbar" %>
+
 <% @all_games.in_groups_of(4) do |games| %>
-    <span>
         <% for game in games do %>
             <% unless game.nil? %>
-                <figure Style = "width:25%; float:left; margin:0px; text-align:center; padding:0px;">
+                <div Style = "width:25%; float: left; clear: right; margin:0px; text-align:center; padding:0px;">
                     <%= image_tag(game.thumbnail) %>
-                    <figcaption><%= game.bgname %></figcaption>
-                </figure>
+                    <div class = "game_name"><%= game.bgname %></div>
+                </div>
             <% end %>
         <% end %>
-    </span>
 <% end %>

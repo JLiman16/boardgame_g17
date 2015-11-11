@@ -3,7 +3,15 @@
   table, th, td{
    border: 1px solid black;
    border-collapse: collapse;
-  } 
+  }
+  figcaption {
+    border: 2px solid #000000;
+	  font-family: Futura, Tahoma, sans-serif;
+	  color: blue;
+	  padding: 10px 40px;
+	  border-radius: 300px;
+	  background-color: #FF99CC;
+  }
 </style>
 <p>
   <div>Add a Boardgame geek account to sync with here.</div>
@@ -16,12 +24,12 @@
   <% end %>
 </p>
 
+<%= link_to "View Collection Images", collection_path %></br>
+
 <% if Delayed::Job.exists? %>
   <div>We are currently processing an account for you, please note this may take a long time for large accounts (approximately 1 second per game), you can click below to refresh</div>
   <%= link_to "Refresh" %>
 <% end %>
-
-<%= link_to "View Collection Images", collection_path %></br>
 
 <% if @user.accounts.count > 0 and not Delayed::Job.exists? %>
   <table>
@@ -56,6 +64,21 @@
   </p>
   <div>
     Current Filters:
+    <% unless params[:max_age].to_i == 1000 %>
+      Age < <%=params[:max_age] %>
+    <% end %>
+    <% unless params[:min_age].to_i == 0 %>
+      Age > <%=params[:min_age] %>
+    <% end %>
+    <% unless params[:num_players].to_i == 0 %>
+      Number of players = <%=params[:num_players] %>
+    <% end %>
+    <% unless params[:min_time].to_i == 0 %>
+      Time > <%=params[:min_time] %>
+    <% end %>
+    <% unless params[:max_time].to_i == 10000 %>
+      Time < <%=params[:max_time] %>
+    <% end %>
     <% unless params[:game_mechanic].blank? %>
       Mechanic = <%=params[:game_mechanic] %>
     <% end %>
