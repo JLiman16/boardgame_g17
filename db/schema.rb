@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110050928) do
+ActiveRecord::Schema.define(version: 20151110105351) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -63,13 +63,12 @@ ActiveRecord::Schema.define(version: 20151110050928) do
     t.integer  "minplayingtime"
     t.integer  "maxplayingtime"
     t.integer  "minage"
-    t.text     "boardgamecategory"
-    t.text     "boardgamemechanic"
     t.text     "boardgamedesigner"
     t.text     "boardgamepublisher"
     t.text     "boardgameexpansion"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "thumbnail"
   end
 
   create_table "games_mechanics", id: false, force: :cascade do |t|

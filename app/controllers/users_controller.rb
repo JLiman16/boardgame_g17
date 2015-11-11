@@ -4,9 +4,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    params[:sort] ||= "bgname"
-    params[:direction] ||= "asc"
-    @all_games = @user.games.order(params[:sort] + " " + params[:direction]).distinct
+    if session[:params]
+      params.replace(session[:params].merge(params))
+    end
+    fetch_games
   end
 
   def new
@@ -80,14 +81,43 @@ class UsersController < ApplicationController
   
   def filter
     @user = User.find(params[:id])
-    @all_games
+    session[:params] = params
+    session[:params].delete_if { |key, value| value.blank? }
     redirect_to @user
+  end
+  
+  def collection
+    @user = User.find(params[:id])
+    @all_games = @user.games
   end
 
   private
     
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
+  end
+  
+  def fetch_games
+    defaults = { min_age: '0', max_age: '1000', sort: 'bgname', direction: 'asc', num_players: '0', min_time: '0', max_time: '10000' }
+    params.replace(defaults.merge(params))
+    
+    @all_games = @user.games.age_range(params[:max_age], params[:min_age])
+    
+    unless params[:num_players].to_i <= 0
+      @all_games = @all_games.players_range(params[:num_players])
+    end
+    
+    @all_games = @all_games.time_range(params[:max_time], params[:min_time])
+    
+    unless params[:game_mechanic].blank?
+      @all_games = @all_games.filter_mechanics(params[:game_mechanic])
+    end
+   
+    unless params[:game_category].blank?
+      @all_games = @all_games.filter_categories(params[:game_category])
+    end
+    
+    @all_games = @all_games.order(params[:sort] + " " + params[:direction]).distinct
   end
 
   # Before filters
