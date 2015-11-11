@@ -6,4 +6,8 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "Should destroy session" do
+    delete :destroy
+    assert_response :redirect
+  end
 end

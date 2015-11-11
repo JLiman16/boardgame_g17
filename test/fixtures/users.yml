@@ -5,4 +5,5 @@
 #  username: MyString
 brandon:
     username: Brandon
-    id: 4
+    id: 1
+    accounts: []
