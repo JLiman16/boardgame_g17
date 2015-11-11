@@ -1,35 +1,11 @@
-<style>
-div {
-}
-
-ul {
-    list-style-type: none;
-}
-
-li {
-    display: flex;
-	border: 2px solid #000000;
-	font-family: Futura, Tahoma, sans-serif;
-	color: blue;
-	padding: 10px 40px;
-	display: inline;
-	border-radius: 300px;
-	background-color: #FF99CC;
-}
-
-li:hover{
-    background-color: #FF66CC;
-    /*font-size: 21px;*/
-}
-</style>
 <div class="container">
     <% if logged_in? %>
         <div id="navbar">
-            <ul>
-                <li><b><%= @user.username %></b></li>
-                <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
-                <li><%= link_to "Profile", current_user %></li> 
-                <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            <ul id="nav-options">
+                <li id="nav-user"><b><%= @user.username %></b></li>
+                <li class="opts"><%= link_to "Log out", logout_path, method: "delete" %></li> 
+                <li class="opts"><%= link_to "Profile", current_user %></li> 
+                <li class="opts"><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
             </ul>
         </div>
       <% else %>

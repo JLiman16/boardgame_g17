@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20151111021821) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "games", force: :cascade do |t|
-    t.integer  "bgg_account_id"
     t.string   "bggid"
     t.string   "bgname"
     t.integer  "yearpublished"
@@ -76,8 +75,6 @@ ActiveRecord::Schema.define(version: 20151111021821) do
     t.datetime "updated_at",         null: false
     t.string   "thumbnail"
   end
-
-  add_index "games", ["bgg_account_id"], name: "index_games_on_bgg_account_id"
 
   create_table "games_mechanics", id: false, force: :cascade do |t|
     t.integer "mechanic_id"

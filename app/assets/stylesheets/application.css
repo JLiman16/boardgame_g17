@@ -13,3 +13,372 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'), url(http://themes.googleusercontent.com/static/fonts/monoton/v4/AKI-lyzyNHXByGHeOcds_w.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Iceland';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Iceland'), local('Iceland-Regular'), url(http://themes.googleusercontent.com/static/fonts/iceland/v3/F6LYTZLHrG9BNYXRjU7RSw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(http://themes.googleusercontent.com/static/fonts/pacifico/v5/yunJt0R8tCvMyj_V4xSjafesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+
+
+body{
+  background-color:#222222;
+}
+
+#container{
+  width:300px;
+  margin:auto;
+}
+/*neeeeoooon*/
+
+
+/*log in*/
+h1{
+  text-align:center;
+  font-size:4em;
+  margin:20px 0 20px 0; 
+}
+
+h1 a{
+  color:#FFDD1B;
+  font-family:Cursive;
+}
+h1 a:hover{ 
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate; 
+}
+
+/*log in*/
+
+
+user_name{  
+  
+  text-align:center;
+  font-size:4em;
+  margin:20px 0 20px 0; 
+}
+
+user_name a{
+  color:#228DFF;
+  font-family:Cursive;
+}
+user_name a:hover{ 
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate; 
+}
+
+/*td*/
+td{
+  font-family:Cursive;
+  color:#E63F00;
+  text-align:center;
+  font-size:1em;
+  margin:20px 0 20px 0; 
+}
+/*td*/
+
+
+span{
+    
+  font-family:Cursive;
+  text-align:center;
+  font-size:1em;
+  margin:20px 0 20px 0; 
+  color:orange;
+}
+
+
+
+
+
+p{
+  text-align:center;
+  font-size:1em;
+  margin:20px 0 20px 0; 
+}
+
+a{
+  text-decoration:none; 
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+p:nth-child(1) a{
+  color:#FF1177;
+  font-family:Iceland;
+}
+p:nth-child(1) a:hover{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate; 
+}
+
+p:nth-child(2) a{
+  font-size:1.5em;
+  color:#FF1177;
+  font-family:Iceland;
+}
+p:nth-child(2) a:hover{
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+p:nth-child(3) a{
+  color:#FFDD1B;
+  font-family:Pacifico;
+}
+p:nth-child(3) a:hover{ 
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate; 
+}
+
+p a:hover{
+color:#ffffff;  
+}
+
+
+
+/*glow for webkit*/ 
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+}
+
+@-webkit-keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+  }
+}
+
+@-webkit-keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FFDD1B,
+               0 0 70px  #FFDD1B,
+               0 0 80px  #FFDD1B,
+               0 0 100px #FFDD1B,
+               0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FFDD1B,
+               0 0 35px #FFDD1B,
+               0 0 40px #FFDD1B,
+               0 0 50px #FFDD1B,
+               0 0 75px #FFDD1B;
+  }
+}
+
+/*glow for mozilla*/
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+
+@-moz-keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+  }
+}
+
+@-moz-keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FFDD1B,
+               0 0 70px  #FFDD1B,
+               0 0 80px  #FFDD1B,
+               0 0 100px #FFDD1B,
+               0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FFDD1B,
+               0 0 35px #FFDD1B,
+               0 0 40px #FFDD1B,
+               0 0 50px #FFDD1B,
+               0 0 75px #FFDD1B;
+  }
+}
+
+
+/*glow*/
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+
+@keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #228DFF,
+               0 0 70px  #228DFF,
+               0 0 80px  #228DFF,
+               0 0 100px #228DFF,
+               0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #228DFF,
+               0 0 35px #228DFF,
+               0 0 40px #228DFF,
+               0 0 50px #228DFF,
+               0 0 75px #228DFF;
+  }
+}
+
+@keyframes neon3 {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FFDD1B,
+               0 0 70px  #FFDD1B,
+               0 0 80px  #FFDD1B,
+               0 0 100px #FFDD1B,
+               0 0 150px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FFDD1B,
+               0 0 35px #FFDD1B,
+               0 0 40px #FFDD1B,
+               0 0 50px #FFDD1B,
+               0 0 75px #FFDD1B;
+  }
+}
+/*REEEEEEEEEEESPONSIVE*/
+@media (max-width: 650px) {
+  
+  #container{
+    width: 100%;
+  }
+  
+  p{
+    font-size:3.5em;
+  }
+
+}
