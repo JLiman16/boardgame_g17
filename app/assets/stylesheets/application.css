@@ -68,6 +68,22 @@ h1 a:hover{
 /*log in*/
 
 
+user_name{  
+  
+  text-align:center;
+  font-size:4em;
+  margin:20px 0 20px 0; 
+}
+
+user_name a{
+  color:#228DFF;
+  font-family:Cursive;
+}
+user_name a:hover{ 
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate; 
+}
 
 /*td*/
 td{
