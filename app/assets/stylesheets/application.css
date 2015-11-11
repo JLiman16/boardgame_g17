@@ -57,7 +57,7 @@ h1{
 
 h1 a{
   color:#FFDD1B;
-  font-family:Pacifico;
+  font-family:Cursive;
 }
 h1 a:hover{ 
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
@@ -84,7 +84,7 @@ span{
     
   font-family:Cursive;
   text-align:center;
-  font-size:0.5em;
+  font-size:1em;
   margin:20px 0 20px 0; 
   color:orange;
 }
