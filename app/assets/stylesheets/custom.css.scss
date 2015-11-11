@@ -4,6 +4,7 @@
 body {
   background-image: url(background2.jpg);
   background-size: contain;
+  background-repeat: repeat-y;
 }
 
 .row {
@@ -98,4 +99,10 @@ body {
   border-collapse:collapse; 
   border: 5px solid #FF9999;
   background-color: #FFFF66;
+}
+
+.game_name {
+  color: white;
+  font-weight: bold;
+  font-size: 21px;
 }
