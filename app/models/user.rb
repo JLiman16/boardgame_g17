@@ -43,15 +43,15 @@ class User < ActiveRecord::Base
     collection_docs = Nokogiri::HTML(xml_file)
     
     for game in collection_docs.css('item') do
-      game_info = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi2/thing?id=' + game['objectid']))
       if Game.exists?(bggid: game['objectid']) then
         self.bgg_accounts.create(game: Game.find_by_bggid(game['objectid']), account_name: username)
-        sleep(1)
       else
+        game_info = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi2/thing?id=' + game['objectid']))
         new_game = Game.new
-        self.bgg_accounts.create(game: new_game, account_name: username)
         new_game.bggid = game['objectid']
         new_game.bgname = game_info.css('name')[0]["value"]
+        new_game.save()
+        self.bgg_accounts.create(game: new_game, account_name: username)
         new_game.yearpublished = game_info.css('yearpublished')[0]["value"]
         new_game.minplayers = game_info.css('minplayers')[0]["value"]
         new_game.maxplayers = game_info.css('maxplayers')[0]["value"]

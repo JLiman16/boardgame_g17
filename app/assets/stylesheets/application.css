@@ -45,10 +45,7 @@ body{
   width:300px;
   margin:auto;
 }
-/*neeeeoooon*/
 
-
-/*log in*/
 h1{
   text-align:center;
   font-size:4em;
@@ -64,8 +61,6 @@ h1 a:hover{
   -moz-animation: neon3 1.5s ease-in-out infinite alternate;
   animation: neon3 1.5s ease-in-out infinite alternate; 
 }
-
-/*log in*/
 
 
 p1{  
@@ -103,7 +98,6 @@ p2 a:hover{
   animation: neon1 1.5s ease-in-out infinite alternate; 
 }
 
-/*td*/
 td{
   font-family:Cursive;
   color:#E63F00;
@@ -111,7 +105,6 @@ td{
   font-size:1em;
   margin:20px 0 20px 0; 
 }
-/*td*/
 
 
 span{
@@ -175,9 +168,6 @@ p a:hover{
 color:#ffffff;  
 }
 
-
-
-/*glow for webkit*/ 
 
 @-webkit-keyframes neon1 {
   from {
@@ -248,7 +238,6 @@ color:#ffffff;
   }
 }
 
-/*glow for mozilla*/
 @-moz-keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff,
@@ -319,7 +308,6 @@ color:#ffffff;
 }
 
 
-/*glow*/
 @keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff,
@@ -388,7 +376,7 @@ color:#ffffff;
                0 0 75px #FFDD1B;
   }
 }
-/*REEEEEEEEEEESPONSIVE*/
+
 @media (max-width: 650px) {
   
   #container{

@@ -88,7 +88,7 @@ class UsersController < ApplicationController
   
   def collection
     @user = User.find(params[:id])
-    @all_games = @user.games
+    @all_games = @user.games.distinct
   end
 
   private
