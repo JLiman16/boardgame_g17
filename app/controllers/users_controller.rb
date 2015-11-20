@@ -33,6 +33,15 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def index
+    if User.exists?(username: params[:user_wanted])
+      redirect_to User.find_by(username: params[:user_wanted])
+    else
+      flash[:danger] = "User not found"
+      redirect_to request.referer
+    end
+  end
 
   def edit
     @user = User.find(params[:id])

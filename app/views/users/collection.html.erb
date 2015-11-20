@@ -1,5 +1,10 @@
 <%= render "shared/navbar" %>
 
+<%= form_tag(users_path, method: "get") do %>
+    <%= text_field_tag(:user_wanted) %>
+    <%= submit_tag("Find User") %>
+<% end %>
+
 <% @all_games.in_groups_of(4) do |games| %>
         <% for game in games do %>
             <% unless game.nil? %>
