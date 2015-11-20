@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      user.last_login = Time.zone.now
+      user.save()
+      redirect_to collection_path(user)
     else
       flash.now[:danger] = 'Invalid username/password combination'
       render 'new'

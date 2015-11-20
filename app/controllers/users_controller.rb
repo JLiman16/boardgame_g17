@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :show]
-  before_action :correct_user,   only: [:edit, :update, :show]
+  before_action :correct_user,   only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -14,6 +14,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def find_game
+    @user = User.find(params[:id])
+    if session[:params]
+      params.replace(session[:params].merge(params))
+    end
+    fetch_games
+  end
+  
   def create
     @user = User.new(user_params)
     @user.accounts = []
@@ -65,7 +73,7 @@ class UsersController < ApplicationController
     @user.build_collection(params[:account_name])
     
     flash[:success] = "Boardgame Geek Account saved"
-    redirect_to @user
+    redirect_to find_game_path(@user)
   end
   
   def unlink_account
@@ -76,14 +84,14 @@ class UsersController < ApplicationController
     @user.accounts.delete(params[:account])
     @user.save
     flash[:success] = "Account Deleted"
-    redirect_to @user
+    redirect_to find_game_path(@user)
   end
   
   def filter
     @user = User.find(params[:id])
     session[:params] = params
     session[:params].delete_if { |key, value| value.blank? }
-    redirect_to @user
+    redirect_to find_game_path(@user)
   end
   
   def collection

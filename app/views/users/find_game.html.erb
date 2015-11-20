@@ -1,0 +1,117 @@
+<%= render "shared/navbar" %>
+<style>
+  table, th, td{
+   border: 1px solid black;
+   border-collapse: collapse;
+  } 
+  
+</style>
+<p>
+  <div><p1><a>Add a Boardgame geek account to sync with here!</a></p1></div>
+  <%= form_tag(link_path, method: "get") do %>
+    <div><p2><a>Account name</a></p2></div>
+      <%= text_field_tag(:account_name) %>
+    <%= submit_tag("Add Account") %>
+  <% end %>
+</p>
+
+<% if Delayed::Job.exists? %>
+  <div id="acc-process">We are currently processing an account for you, please note this may take a long time for large accounts (approximately 1 second per game), you can click below to refresh</div>
+  <%= link_to "Refresh" %>
+<% end %>
+
+<div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
+
+
+<% if @user.accounts.count > 0 and not Delayed::Job.exists? %>
+  <div id="bgg-table">
+  <table>
+    <th colspan="2">Account Name</th>
+    <% for account in @user.accounts do %>
+      <tr>
+        <td><%= account %></td> 
+        <td><%= link_to "Delete", unlink_path(:account => account), data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+  <div class="filter">
+    <p>
+      <div><b>Filters</b></div>
+      <%= form_tag(filter_path) do %>
+        <%= label_tag(:max_age, "Maximum Age") %>
+        <%= number_field_tag(:max_age, "Max", in: 1..100) %></br>
+        <%= label_tag(:min_age, "Minimum Age") %>
+        <%= number_field_tag(:min_age, "Min", in: 0..100) %></br>
+        <%= label_tag(:num_players, "Number of Players") %>
+        <%= number_field_tag(:num_players, "Min",  in: 0..1000) %></br>
+        <%= label_tag(:min_time, "Minimum time (mins)") %>
+        <%= number_field_tag(:min_time, "Min", in: 0..10000) %></br>
+        <%= label_tag(:max_time, "Maximum time (mins)") %>
+        <%= number_field_tag(:max_time, "Max", in: 0..10000) %></br>
+        <%= label_tag(:game_mechanic, "Mechanic") %>
+        <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic") %></br>
+        <%= label_tag(:game_category, "Category") %>
+        <%= select_tag(:game_category, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category") %></br>
+        <%= submit_tag("Submit") %>
+      <% end %>
+    </p>
+  </div>
+  <div class="filter">
+    Current Filters:
+     <% unless params[:max_age].to_i == 1000 %>
+      Age < <%=params[:max_age] %>
+    <% end %>
+    <% unless params[:min_age].to_i == 0 %>
+      Age > <%=params[:min_age] %>
+    <% end %>
+    <% unless params[:num_players].to_i == 0 %>
+      Number of players = <%=params[:num_players] %>
+    <% end %>
+    <% unless params[:min_time].to_i == 0 %>
+      Time > <%=params[:min_time] %>
+    <% end %>
+    <% unless params[:max_time].to_i == 10000 %>
+      Time < <%=params[:max_time] %>
+    <% end %>
+    <% unless params[:game_mechanic].blank? %>
+      Mechanic = <%=params[:game_mechanic] %>
+    <% end %>
+    </br>
+    <% unless params[:game_category].blank? %>
+      Category = <%=params[:game_category] %>
+    <% end %>
+  </div>
+  
+  <table class="game-list">
+    <th><%= sortable("Name", "bgname") %></th>
+    <th><%= sortable("Year", 'yearpublished') %></th>
+    <th><%= sortable("Minimum Age", 'minage') %></th>
+    <th><%= sortable("Min Players", 'minplayers') %></th>
+    <th><%= sortable("Max Players", 'maxplayers') %></th>
+    <th><%= sortable("Game Time", 'playingtime') %></th>
+    <th>Categories</th>
+    <th>Mechanics</th>
+    <% for game in @all_games do %>
+    <%# for game in Game.all do %> 
+      <tr>
+        <td><%= game.bgname %></td>
+        <td><%= game.yearpublished %></td>
+        <td><%= game.minage %></td>
+        <td><%= game.minplayers %></td>
+        <td><%= game.maxplayers %></td>
+        <td><%= game.playingtime %></td>
+        <td>
+          <% for category in game.categories do %>
+            <%= category.boardgamecategory %><% if not category == game.categories.last %>, <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% for mechanic in game.mechanics do %>
+            <%= mechanic.boardgamemechanic %><% if not mechanic == game.mechanics.last %>, <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>  
+<% end %>

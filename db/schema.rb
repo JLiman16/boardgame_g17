@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110105351) do
+ActiveRecord::Schema.define(version: 20151120021559) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20151110105351) do
   add_index "categories_games", ["category_id"], name: "index_categories_games_on_category_id"
   add_index "categories_games", ["game_id"], name: "index_categories_games_on_game_id"
 
+  create_table "collections", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -54,6 +59,7 @@ ActiveRecord::Schema.define(version: 20151110105351) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "games", force: :cascade do |t|
+    t.integer  "bgg_account_id"
     t.string   "bggid"
     t.string   "bgname"
     t.integer  "yearpublished"
@@ -70,6 +76,8 @@ ActiveRecord::Schema.define(version: 20151110105351) do
     t.datetime "updated_at",         null: false
     t.string   "thumbnail"
   end
+
+  add_index "games", ["bgg_account_id"], name: "index_games_on_bgg_account_id"
 
   create_table "games_mechanics", id: false, force: :cascade do |t|
     t.integer "mechanic_id"
@@ -92,6 +100,7 @@ ActiveRecord::Schema.define(version: 20151110105351) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.text     "accounts"
+    t.datetime "last_login"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true
