@@ -2,7 +2,7 @@
 
 <%= render "shared/navbar" %>
 
-<%= image_tag @user.picture.url if @user.picture? %>
+<%= image_tag @user.picture.url, :class => "profile_pic"  if @user.picture? %>
 
 <div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
 

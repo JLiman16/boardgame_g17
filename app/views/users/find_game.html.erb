@@ -20,8 +20,6 @@
   <%= link_to "Refresh" %>
 <% end %>
 
-<div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
-
 
 <% if @user.accounts.count > 0 and not Delayed::Job.exists? %>
   <div id="bgg-table">
