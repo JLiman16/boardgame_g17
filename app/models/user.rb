@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :games, :through => :bgg_accounts
   accepts_nested_attributes_for :bgg_accounts , :games
   attr_accessor :remember_token
+  mount_uploader :picture, PictureUploader
   validates :username,  presence: true, length: { maximum: 50 },
                         uniqueness: { case_sensitive: false }
   has_secure_password

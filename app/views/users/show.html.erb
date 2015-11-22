@@ -2,6 +2,8 @@
 
 <%= render "shared/navbar" %>
 
+<%= image_tag @user.picture.url if @user.picture? %>
+
 <div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
 
 <div class="game_name">Last Login: <%= @user.last_login %></div>
