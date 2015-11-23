@@ -14,15 +14,11 @@
           <td><%= f.label :password_confirmation, "Confirm Password" %></td>
           <td><%= f.password_field :password_confirmation, class: 'form-control' %></td>
         </tr>
-        
-        <tr>
-          <td><%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %></td>
-        </tr>
-        
-        <tr>
-            <td><p><%= f.submit "Save Account", class: "btn btn-primary" %></p></td>
-        </tr>
     </table>
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <p><%= f.submit "Save Account", class: "btn btn-primary" %></p>
 <% end %>
 
 <script type="text/javascript">
