@@ -90,8 +90,8 @@
     <th><%= sortable("Game Time", 'playingtime') %></th>
     <th>Categories</th>
     <th>Mechanics</th>
-    <% for game in @all_games do %>
-    <%# for game in Game.all do %> 
+    <%# for game in @all_games do %>
+    <% for game in Game.all do %> 
       <tr>
         <td><%= game.bgname %></td>
         <td><%= game.yearpublished %></td>
