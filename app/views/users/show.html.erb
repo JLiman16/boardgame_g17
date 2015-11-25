@@ -7,3 +7,10 @@
 <div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
 
 <div class="game_name">Last Login: <%= @user.last_login %></div>
+
+<div class="game_name">
+    Recent Activity</br>
+    <% for game in @user.bgg_accounts.order(:created_at).limit(10) %>
+        <%= game.created_at %>: Added <%= Game.find(game.game_id).bgname %> to their collection </br>
+    <% end %>
+</div>
