@@ -81,9 +81,8 @@ body {
 }
 
 .filter {
-  border: 2px solid yellow;
+  border: 1px solid purple;
   border-radius: 15px;
-  background-color: #FFFFCC;
   padding: 5px;
 }
 
@@ -95,6 +94,7 @@ body {
   float: left; 
   padding: 5px;
   margin-left: 30px;
+  font-family: cursive;
 }
 
 .game_name {
@@ -130,7 +130,7 @@ ul.information li:hover span{
   visibility: visible;
   top: 0px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
   border-collapse:collapse; 
-  border: 5px solid #FF9999;
+  border: 5px solid black;
   border-radius: 5px;
-  background-color: #FFFFFF;
+  background-color: lightyellow;
 }

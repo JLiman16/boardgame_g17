@@ -37,19 +37,19 @@
       <b>Filters</b>
       <%= form_tag(filter_path) do %>
         <%= label_tag(:max_age, "Maximum Age") %></br>
-        <%= number_field_tag(:max_age, "Max", in: 1..100) %></br>
+        <%= number_field_tag(:max_age, "Max", in: 1..100, class: 'filter') %></br>
         <%= label_tag(:min_age, "Minimum Age") %></br>
-        <%= number_field_tag(:min_age, "Min", in: 0..100) %></br>
+        <%= number_field_tag(:min_age, "Min", in: 0..100, class: 'filter') %></br>
         <%= label_tag(:num_players, "Number of Players") %></br>
-        <%= number_field_tag(:num_players, "Min",  in: 0..1000) %></br>
+        <%= number_field_tag(:num_players, "Min",  in: 0..1000, class: 'filter') %></br>
         <%= label_tag(:min_time, "Minimum time (mins)") %></br>
-        <%= number_field_tag(:min_time, "Min", in: 0..10000) %></br>
+        <%= number_field_tag(:min_time, "Min", in: 0..10000, class: 'filter') %></br>
         <%= label_tag(:max_time, "Maximum time (mins)") %></br>
-        <%= number_field_tag(:max_time, "Max", in: 0..10000) %></br>
+        <%= number_field_tag(:max_time, "Max", in: 0..10000, class: 'filter') %></br>
         <%= label_tag(:game_mechanic, "Mechanic") %></br>
-        <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic") %></br>
+        <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic", class: 'filter') %></br>
         <%= label_tag(:game_category, "Category") %></br>
-        <%= select_tag(:game_category, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category") %></br>
+        <%= select_tag(:game_category, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category", class: 'filter') %></br>
         <%= submit_tag("Filter") %>
       <% end %>
 
@@ -80,8 +80,8 @@
   </div>  
   
   <span class="game-list">
-    <span>Click a game to find more games like it!</span></br>
-    <span>Mouseover to get game info</span>
+    <div style= "text-align: center">Click a game to find more games like it!</div>
+    <div style= "text-align: center">Mouseover to get game info</div>
     <ul class = "information">
       <% for game in @all_games do %>
       <%# for game in Game.all do %> 
@@ -110,7 +110,7 @@
   
   <% unless @suggestions.nil? %>
     <span class="game-list">
-      <span>Games similar to <%= @game_to_compare.bgname %></span></br>
+      <div style = "text-align: center">Games similar to <%= @game_to_compare.bgname %></div>
       <ul class = "information">
         <% for game in @suggestions do %>
         <%# for game in Game.all do %> 
