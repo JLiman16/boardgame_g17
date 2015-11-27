@@ -7,25 +7,25 @@
 
 <% unless Delayed::Job.exists? %>
   <div style = "max-width: 22%; float: left">
-    <p1><a>Add a Boardgame geek account to sync with here!</a></p1>
-    <%= form_tag(link_path, method: "get") do %>
-      <p2><a>Account name</a></p2>
-        <%= text_field_tag(:account_name) %>
-        </br>
-      <%= submit_tag("Add Account") %>
-    <% end %>
+    <div class="game-list">  
+      <p1><a>Add a Boardgame geek account to sync with here!</a></p1>
+      <%= form_tag(link_path, method: "get") do %>
+        <p2><a>Account name</a></p2>
+          <%= text_field_tag(:account_name) %>
+          </br>
+        <%= submit_tag("Add Account") %>
+      <% end %>
     
-    <% if @user.accounts.count > 0 %>
-      <div id="bgg-table">
+      <% if @user.accounts.count > 0 %>
         <b>Synced Accounts</b></br>
         <% for account in @user.accounts do %>
           <%= account %>
           <%= link_to "Delete", unlink_path(:account => account), data: { confirm: "Are you sure?" } %></br>
         <% end %>
-      </div>
-    <% end %>  
+      <% end %>  
+    </div>
     
-    <div class="filter">
+    <div class="game-list">
       <b>Sort by</b></br>
       <%= sortable("Name", "bgname") %></br>
       <%= sortable("Year", 'yearpublished') %></br>
@@ -50,7 +50,7 @@
         <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic") %></br>
         <%= label_tag(:game_category, "Category") %></br>
         <%= select_tag(:game_category, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category") %></br>
-        <%= submit_tag("Submit") %>
+        <%= submit_tag("Filter") %>
       <% end %>
 
       Current Filters:
@@ -79,15 +79,43 @@
     </div>
   </div>  
   
-  <span style = "float: left; padding: 5px">
-    <div class="game-list">
-      <span>Click a game to find more games like it!</span></br>
-      <span>Mouseover to get game info</span>
+  <span class="game-list">
+    <span>Click a game to find more games like it!</span></br>
+    <span>Mouseover to get game info</span>
+    <ul class = "information">
+      <% for game in @all_games do %>
+      <%# for game in Game.all do %> 
+        <li>
+        <%= link_to game.bgname, suggest_game_path(:game_id => game.id) %>
+        <span>
+          <%= image_tag(game.thumbnail) %></br>
+          Year: <%= game.yearpublished %></br>
+          Min Age: <%= game.minage %></br>
+          Min Players: <%= game.minplayers %></br>
+          Max Players: <%= game.maxplayers %></br>
+          Avg. Play Time: <%= game.playingtime %></br>
+          Categories</br>
+          <% for category in game.categories do %>
+            <%= category.boardgamecategory %></br>
+          <% end %>
+          Mechanics</br>
+          <% for mechanic in game.mechanics do %>
+            <%= mechanic.boardgamemechanic %></br>
+          <% end %>
+        </span>
+        </li>
+      <% end %>
+    </ul>
+  </span>
+  
+  <% unless @suggestions.nil? %>
+    <span class="game-list">
+      <span>Games similar to <%= @game_to_compare.bgname %></span></br>
       <ul class = "information">
-        <% for game in @all_games do %>
+        <% for game in @suggestions do %>
         <%# for game in Game.all do %> 
           <li>
-          <%= link_to game.bgname, suggest_game_path(:game_id => game.id) %>
+          <%= game.bgname %>
           <span>
             <%= image_tag(game.thumbnail) %></br>
             Year: <%= game.yearpublished %></br>
@@ -107,38 +135,6 @@
           </li>
         <% end %>
       </ul>
-    </div>
-  </span>
-  
-  <% unless @suggestions.nil? %>
-    <span style = "float: left; padding: 5px">
-      <div class="game-list">
-        <span>Games similar to <%= @game_to_compare.bgname %></span></br>
-        <ul class = "information">
-          <% for game in @suggestions do %>
-          <%# for game in Game.all do %> 
-            <li>
-            <%= game.bgname %>
-            <span>
-              <%= image_tag(game.thumbnail) %></br>
-              Year: <%= game.yearpublished %></br>
-              Min Age: <%= game.minage %></br>
-              Min Players: <%= game.minplayers %></br>
-              Max Players: <%= game.maxplayers %></br>
-              Avg. Play Time: <%= game.playingtime %></br>
-              Categories</br>
-              <% for category in game.categories do %>
-                <%= category.boardgamecategory %></br>
-              <% end %>
-              Mechanics</br>
-              <% for mechanic in game.mechanics do %>
-                <%= mechanic.boardgamemechanic %></br>
-              <% end %>
-            </span>
-            </li>
-          <% end %>
-        </ul>
-      </div>
     </span>
   <% end %>
 <% end %>

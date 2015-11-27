@@ -32,16 +32,16 @@ body {
 
 .opts {
   display: inline;
-	border: 2px solid #000000;
+	/* border: 2px solid #000000; */
 	font-family: Futura, Tahoma, sans-serif;
-	color: blue;
-	padding: 5px;
-	border-radius: 5px 5px;
-	background-color: #FF99CC;
+	color: white;
+	padding: 5px 20px;
+	border-radius: 25px 25px;
+	background-color: cornflowerblue;
 }
 
 .opts:hover {
-    background-color: #FF66CC;
+    background-color: #a4c1f4;
     /*font-size: 21px;*/
 }
 
@@ -82,22 +82,26 @@ body {
 
 .filter {
   border: 2px solid yellow;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: #FFFFCC;
+  padding: 5px;
 }
 
 #bgg-table {
   border: 2px solid pink;
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: #66FFFF;
-  width: 164px;
+  padding: 5px;
 }
 
 .game-list {
   border-collapse:collapse; 
-  border: 5px solid #FF9999;
-  border-radius: 5px;
-  background-color: #FFFF66;
+  border: 5px solid purple;
+  border-radius: 25px;
+  background-color: white;
+  float: left; 
+  padding: 5px;
+  margin-left: 30px;
 }
 
 .game_name {
