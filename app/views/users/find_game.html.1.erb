@@ -24,16 +24,6 @@
         <% end %>
       </div>
     <% end %>  
-    
-    <div class="filter">
-      <b>Sort by</b></br>
-      <%= sortable("Name", "bgname") %></br>
-      <%= sortable("Year", 'yearpublished') %></br>
-      <%= sortable("Minimum Age", 'minage') %></br>
-      <%= sortable("Min Players", 'minplayers') %></br>
-      <%= sortable("Max Players", 'maxplayers') %></br>
-      <%= sortable("Game Time", 'playingtime') %></br>
-    </div>
       
     <div class="filter">
       <p>
@@ -93,33 +83,38 @@
     <% end %>
   </div>  
   
-  <span style = "float: left; padding: 5px">
-    <div class="game-list">
-      <span>Click a game to find more games like it!</span></br>
-      <span>Mouseover to get game info</span>
-      <ul class = "information">
-        <% for game in @all_games do %>
-        <%# for game in Game.all do %> 
-          <li>
-          <%= link_to game.bgname, suggest_game_path(:game_id => game.id) %>
-          <span>
-            Year: <%= game.yearpublished %></br>
-            Min Age: <%= game.minage %></br>
-            Min Players: <%= game.minplayers %></br>
-            Max Players: <%= game.maxplayers %></br>
-            Avg. Play Time: <%= game.playingtime %></br>
-            Categories</br>
+  <span style = "float: left; max-width: 30%; padding: 5px">
+    <span>Click a game to find more games like it!</span>  
+    <table class="game-list">
+      <th><%= sortable("Name", "bgname") %></th>
+      <th><%= sortable("Year", 'yearpublished') %></th>
+      <th><%= sortable("Minimum Age", 'minage') %></th>
+      <th><%= sortable("Min Players", 'minplayers') %></th>
+      <th><%= sortable("Max Players", 'maxplayers') %></th>
+      <th><%= sortable("Game Time", 'playingtime') %></th>
+      <th>Categories</th>
+      <th>Mechanics</th>
+      <% for game in @all_games do %>
+      <%# for game in Game.all do %> 
+        <tr>
+          <td><%= link_to game.bgname, suggest_game_path(:game_id => game.id) %></td>
+          <td><%= game.yearpublished %></td>
+          <td><%= game.minage %></td>
+          <td><%= game.minplayers %></td>
+          <td><%= game.maxplayers %></td>
+          <td><%= game.playingtime %></td>
+          <td>
             <% for category in game.categories do %>
-              <%= category.boardgamecategory %></br>
+              <%= category.boardgamecategory %><% if not category == game.categories.last %>, <% end %>
             <% end %>
-            Mechanics</br>
+          </td>
+          <td>
             <% for mechanic in game.mechanics do %>
-              <%= mechanic.boardgamemechanic %></br>
+              <%= mechanic.boardgamemechanic %><% if not mechanic == game.mechanics.last %>, <% end %>
             <% end %>
-          </span>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </span>  
 <% end %>

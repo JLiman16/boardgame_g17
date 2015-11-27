@@ -109,3 +109,27 @@ body {
 .profile_pic {
   max-width: 200px;
 }
+
+ul.information span{
+  position:absolute; /*see support section for more info on positioning*/
+  visibility: hidden;
+}
+
+ul.information li{
+  position: relative; /*allows precise positioning of the popup image when used with position:absolute - see support section */
+  z-index: 0; /*resets the stack order of the list items - we'll increase in step 4. See support section for more info*/  
+  text-align: left;
+}
+
+ul.information li:hover{
+  z-index: 50; /*places the popups infront of the thumbnails, which we gave a z-index of 0 in step 1*/
+}
+
+ul.information li:hover span{
+  visibility: visible;
+  top: 0px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
+  border-collapse:collapse; 
+  border: 5px solid #FF9999;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}
