@@ -8,18 +8,18 @@
 </style>
 
 <% if Delayed::Job.exists? %>
-  <div id="acc-process">We are currently processing an account for you, please note this may take a long time for large accounts (approximately 1 second per game), you can click below to refresh</div>
+  <span id="acc-process">We are currently processing an account for you, please note this may take a long time for large accounts (approximately 1 second per game), you can click below to refresh</span>
   <%= link_to "Refresh" %>
 <% end %>
 
 <p1><a>Add a Boardgame geek account to sync with here!</a></p1>
 <%= form_tag(link_path, method: "get") do %>
-  <div><p2><a>Account name</a></p2></div>
+  <p2><a>Account name</a></p2>
     <%= text_field_tag(:account_name) %>
+    </br>
   <%= submit_tag("Add Account") %>
 <% end %>
 
-<div style="Max_Width = 25">
 <% if @user.accounts.count > 0 and not Delayed::Job.exists? %>
   <div id="bgg-table">
   <table>
@@ -85,9 +85,8 @@
     <% for game in @suggestions do %>
       <%= game.bgname %>,
     <% end %>
-  <% end %>
-  </div>
-</div>  
+      <% end %>
+    </div>  
   
   <table class="game-list">
     <th><%= sortable("Name", "bgname") %></th>
