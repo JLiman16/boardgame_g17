@@ -111,11 +111,12 @@
   <% unless @suggestions.nil? %>
     <span class="game-list">
       <div style = "text-align: center">Games similar to <%= @game_to_compare.bgname %></div>
+      <div style = "text-align: center">Click a game to add it to your collection</div>
       <ul class = "information">
         <% for game in @suggestions do %>
         <%# for game in Game.all do %> 
           <li>
-          <%= game.bgname %>
+          <%= link_to game.bgname, suggest_game_path(:game_id => @game_to_compare.id, :add_game => game.id) %>
           <span>
             <%= image_tag(game.thumbnail) %></br>
             Year: <%= game.yearpublished %></br>
