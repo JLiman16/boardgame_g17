@@ -40,10 +40,24 @@ body {
 	background-color: cornflowerblue;
 }
 
-.opts:hover {
+.opts a:link {
+  color: white;
+}
+
+.opts a:visited {
+  color: white;
+}
+
+.opts a:hover {
     background-color: #a4c1f4;
     /*font-size: 21px;*/
+    color: white;
 }
+
+.opts a:active {
+  color: white;
+}
+
 
 .btn {
   border: 1px solid black;
