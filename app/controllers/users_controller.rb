@@ -112,10 +112,10 @@ class UsersController < ApplicationController
     similar_games = Similarity.where("game1_id = ? OR game2_id = ?", params[:game_id].to_i, params[:game_id].to_i).order(sim_index: :desc).limit(10)
     @suggestions = []
     for game in similar_games do
-      if game.game1_id == params[:game_id]
-        @suggestions << Game.find(game.game1_id)
-      else
+      if game.game1_id == params[:game_id].to_i
         @suggestions << Game.find(game.game2_id)
+      else
+        @suggestions << Game.find(game.game1_id)
       end
     end
     find_game
