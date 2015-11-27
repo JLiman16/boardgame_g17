@@ -87,13 +87,6 @@ body {
   padding: 5px;
 }
 
-#bgg-table {
-  border: 2px solid pink;
-  border-radius: 25px;
-  background-color: #66FFFF;
-  padding: 5px;
-}
-
 .game-list {
   border-collapse:collapse; 
   border: 5px solid purple;
@@ -107,7 +100,11 @@ body {
 .game_name {
   color: white;
   font-weight: bold;
-  font-size: 21px;
+  font-size: 0.75em;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: red;
+  text-align: center;
 }
 
 .profile_pic {

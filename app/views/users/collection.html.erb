@@ -5,14 +5,14 @@
     <%= submit_tag("Find User") %>
 <% end %>
 
-<table>
+<table style="margin-left: auto; margin-right: auto">
     <% @all_games.in_groups_of(4) do |games| %>
         <tr>
         <% for game in games do %>
             <% unless game.nil? %>
-                <td>
-                    <%= image_tag(game.thumbnail) %>
-                    <div class = "game_name"><%= game.bgname %></div>
+                <td style="text-align:center; padding: 10px">
+                    <div><%= image_tag(game.thumbnail) %></div>
+                    <span class = "game_name"><%= game.bgname %></span>
                 </td>
             <% end %>
         <% end %>
