@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'users/:id/filter' => 'users#filter', as: :filter
   get 'users/:id/collection' => 'users#collection', as: :collection
   get 'users/:id/find_game' => 'users#find_game', as: :find_game
+  get 'users/:id/suggest_game' => 'users#suggest_game', as: :suggest_game
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

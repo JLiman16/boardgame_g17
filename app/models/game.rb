@@ -53,6 +53,10 @@ class Game < ActiveRecord::Base
         new_game.categories.create(boardgamecategory: category["value"])
       end
     end
+    
+    for game in Game.all do
+      Similarity.create_index(game, new_game)
+    end
         
     unless new_game.save()
       return false

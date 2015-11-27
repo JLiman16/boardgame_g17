@@ -81,6 +81,13 @@
     <% end %>
   </div>
   
+  <div class="filter"><% unless @suggestions.nil? %>
+    <% for game in @suggestions do %>
+      <%= game.bgname %>,
+    <% end %>
+  <% end %>
+  </div>
+  
   <table class="game-list">
     <th><%= sortable("Name", "bgname") %></th>
     <th><%= sortable("Year", 'yearpublished') %></th>
@@ -93,7 +100,7 @@
     <% for game in @all_games do %>
     <%# for game in Game.all do %> 
       <tr>
-        <td><%= game.bgname %></td>
+        <td><%= link_to game.bgname, suggest_game_path(:game_id => game.id) %></td>
         <td><%= game.yearpublished %></td>
         <td><%= game.minage %></td>
         <td><%= game.minplayers %></td>
@@ -111,5 +118,5 @@
         </td>
       </tr>
     <% end %>
-  </table>  
+  </table>
 <% end %>

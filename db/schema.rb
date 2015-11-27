@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122085851) do
+ActiveRecord::Schema.define(version: 20151126220444) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151122085851) do
 
   add_index "categories_games", ["category_id"], name: "index_categories_games_on_category_id"
   add_index "categories_games", ["game_id"], name: "index_categories_games_on_game_id"
-  
+
   create_table "collections", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20151122085851) do
     t.datetime "updated_at",         null: false
     t.string   "thumbnail"
   end
-  
+
   add_index "games", ["bgg_account_id"], name: "index_games_on_bgg_account_id"
 
   create_table "games_mechanics", id: false, force: :cascade do |t|
@@ -91,6 +91,12 @@ ActiveRecord::Schema.define(version: 20151122085851) do
     t.string   "boardgamemechanic"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "similarities", force: :cascade do |t|
+    t.integer "game1_id"
+    t.integer "game2_id"
+    t.float   "sim_index"
   end
 
   create_table "users", force: :cascade do |t|

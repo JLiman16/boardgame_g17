@@ -80,6 +80,9 @@ class User < ActiveRecord::Base
         end
 
         new_game.save()
+        for game in Game.all do
+          Similarity.create_index(game, new_game)
+        end
         #Bgg will return an error if the site is queried too often
         sleep(1)
       end
