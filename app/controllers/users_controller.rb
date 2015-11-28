@@ -101,8 +101,9 @@ class UsersController < ApplicationController
   
   def collection
     @user = User.find(params[:id])
-    unless params[:game_id].nil?
+    unless params[:game_id].nil? or @user != current_user
       @user.bgg_accounts.where("game_id = ? AND user_id = ?", params[:game_id], params[:id]).take.toggle!(:favorite)
+      redirect_to collection_path
     end
     @all_games = @user.games.distinct
   end
