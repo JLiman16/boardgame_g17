@@ -12,6 +12,11 @@
             <% unless game.nil? %>
                 <td style="text-align:center; padding: 10px">
                     <div><%= image_tag(game.thumbnail) %></div>
+                    <% if @user.bgg_accounts.find_by_game_id(game.id).favorite %>
+                        <%= link_to image_tag("star_yellow.png", :size => "17x16"), collection_path(:game_id => game.id)  %>
+                    <% else %>
+                        <%= link_to image_tag("star_grey.png", :size => "17x16"), collection_path(:game_id => game.id)  %>
+                    <% end %>
                     <span class = "game_name"><%= game.bgname %></span>
                 </td>
             <% end %>

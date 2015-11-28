@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126220444) do
+ActiveRecord::Schema.define(version: 20151128220841) do
 
   create_table "bgg_accounts", force: :cascade do |t|
     t.string   "account_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151126220444) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "game_id"
+    t.boolean  "favorite"
   end
 
   add_index "bgg_accounts", ["user_id"], name: "index_bgg_accounts_on_user_id"

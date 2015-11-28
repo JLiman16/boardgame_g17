@@ -4,10 +4,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if session[:params]
-      params.replace(session[:params].merge(params))
-    end
-    fetch_games
   end
 
   def new
@@ -105,6 +101,9 @@ class UsersController < ApplicationController
   
   def collection
     @user = User.find(params[:id])
+    unless params[:game_id].nil?
+      @user.bgg_accounts.where("game_id = ? AND user_id = ?", params[:game_id], params[:id]).take.toggle!(:favorite)
+    end
     @all_games = @user.games.distinct
   end
   
