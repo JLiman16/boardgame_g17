@@ -139,6 +139,10 @@ class UsersController < ApplicationController
     defaults = { min_age: '0', max_age: '1000', sort: 'bgname', direction: 'asc', num_players: '0', min_time: '0', max_time: '10000', favorites: false }
     params.replace(defaults.merge(params))
     
+    if params[:favorites] == "1"
+      params[:favorites] = "t"
+    end
+    
     @all_games = @user.games.where("favorite = ?", params[:favorites])
     
     @all_games = @all_games.age_range(params[:max_age], params[:min_age])

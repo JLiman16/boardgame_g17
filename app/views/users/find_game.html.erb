@@ -36,6 +36,8 @@
       
       <b>Filters</b>
       <%= form_tag(filter_path) do %>
+        <%= label_tag(:favorites, "Favorites") %>
+        <%= check_box_tag(:favorites) %> </br>
         <%= label_tag(:max_age, "Maximum Age") %></br>
         <%= number_field_tag(:max_age, "Max", in: 1..100, class: 'filter') %></br>
         <%= label_tag(:min_age, "Minimum Age") %></br>
@@ -75,6 +77,9 @@
       </br>
       <% unless params[:game_category].blank? %>
         Category = <%=params[:game_category] %>
+      <% end %>
+      <% unless params[:favorites].blank? %>
+        Favorites
       <% end %>
     </div>
   </div>  
