@@ -6,11 +6,11 @@
 
 <div><p2><a><%= link_to "View Collection Images", collection_path %></br></a></p2></div>
 
-<span class="game_event">Last Login: <%= @user.last_login %></span></br>
+<span class="game_event">Last Login: <%= time_ago_in_words(@user.last_login) %> ago</span></br>
 
 <span class="game_event">
     Recent Activity</br>
-    <% for game in @user.bgg_accounts.order(:created_at).limit(10) %>
-        <%= game.created_at %>: Added <%= Game.find(game.game_id).bgname %> to their collection </br>
+    <% for game in @user.bgg_accounts.order(created_at: :desc).limit(10) %>
+        <%= time_ago_in_words(game.created_at) %> ago: Added <%= Game.find(game.game_id).bgname %> to their collection </br>
     <% end %>
 </span>
