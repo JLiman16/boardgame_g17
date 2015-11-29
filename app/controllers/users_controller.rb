@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.accounts = []
+    @user.last_login = Time.zone.now
     if @user.save
       log_in @user
       flash[:success] = "Thank you for making an account at Bored? Game!"
