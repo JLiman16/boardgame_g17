@@ -113,7 +113,9 @@ class UsersController < ApplicationController
     @game_to_compare = Game.find(params[:game_id].to_i)
     unless params[:add_game].nil?
       @user = User.find(params[:id])
-      @user.bgg_accounts.create(game: Game.find(params[:add_game].to_i))
+      unless BggAccount.where("user_id = ? AND game_id = ?", @user, params[:add_game]).exists?
+        @user.bgg_accounts.create(game: Game.find(params[:add_game].to_i), favorite: "f")
+      end
     end
     @suggestions = []
     for game in similar_games do
@@ -134,10 +136,12 @@ class UsersController < ApplicationController
   end
   
   def fetch_games
-    defaults = { min_age: '0', max_age: '1000', sort: 'bgname', direction: 'asc', num_players: '0', min_time: '0', max_time: '10000' }
+    defaults = { min_age: '0', max_age: '1000', sort: 'bgname', direction: 'asc', num_players: '0', min_time: '0', max_time: '10000', favorites: false }
     params.replace(defaults.merge(params))
     
-    @all_games = @user.games.age_range(params[:max_age], params[:min_age])
+    @all_games = @user.games.where("favorite = ?", params[:favorites])
+    
+    @all_games = @all_games.age_range(params[:max_age], params[:min_age])
     
     unless params[:num_players].to_i <= 0
       @all_games = @all_games.players_range(params[:num_players])
