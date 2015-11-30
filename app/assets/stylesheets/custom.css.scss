@@ -34,13 +34,30 @@ body {
 	padding: 5px;
 }
 
+#activity_box {
+  background-color: black;
+  width: 500px;
+  padding: 10px;
+  margin: 100px 0px 0px 100px;
+  float: left;
+}
+
+#status_box {
+  background-color: cornflowerblue;
+  width: 200px;
+	border-radius: 25px;  
+  padding: 5px 20px;
+  float: left;
+  margin: 20px 0px 0px 200px;
+}
+
 .opts {
   display: inline;
 	/* border: 2px solid #000000; */
 	font-family: Futura, Tahoma, sans-serif;
 	color: white;
 	padding: 5px 20px;
-	border-radius: 25px 25px;
+	border-radius: 25px;
 	background-color: cornflowerblue;
 }
 
@@ -133,15 +150,19 @@ body {
   font-family: cursive;
 }
 
-.profile_box {
-  background-color:black;
-  width:500px;
-  padding:10px;
-  margin:100px 0px 0px 500px;
-}
-
 .profile_pic {
   max-width: 200px;
+  margin: 100px 0px 20px 200px;
+  float: left;
+}
+
+.status_box_text {
+  color: white;
+  font-family: cursive;  
+}
+
+.status_box_text2 {
+  font-family: cursive;    
 }
 
 ul.information span{
