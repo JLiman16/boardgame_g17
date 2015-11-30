@@ -38,6 +38,8 @@ body {
 	padding: 5px 20px;
 	border-radius: 25px 25px;
 	background-color: cornflowerblue;
+	transition: all 0.5s;
+	cursor: pointer;
 }
 
 .opts a:link {
@@ -48,10 +50,29 @@ body {
   color: white;
 }
 
-.opts a:hover {
-    background-color: #a4c1f4;
-    /*font-size: 21px;*/
-    color: white;
+.opts span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.5s;
+}
+
+.opts span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.opts:hover span {
+  padding-right: 15px;
+}
+
+.opts:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .opts a:active {

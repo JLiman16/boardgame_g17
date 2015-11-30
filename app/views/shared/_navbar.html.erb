@@ -3,10 +3,10 @@
         <div id="navbar">
             <ul id="nav-options">
                 <li id="nav-user"><b><%= current_user.username %></b></li>
-                <li class="opts"><%= link_to "My Profile", current_user %></li>
-                <li class="opts"><%= link_to "Find a Game", find_game_path(current_user) %></li>
-                <li class="opts"><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-                <li class="opts"><%= link_to "Log out", logout_path, method: "delete" %></li> 
+                <li class="opts"><span><%= link_to "My Profile", current_user %></span></li>
+                <li class="opts"><span><%= link_to "Find a Game", find_game_path(current_user) %></span></li>
+                <li class="opts"><span><%= link_to "Edit Profile", edit_user_path(current_user) %></span></li>
+                <li class="opts"><span><%= link_to "Log out", logout_path, method: "delete" %></span></li> 
             </ul>
         </div>
       <% else %>
