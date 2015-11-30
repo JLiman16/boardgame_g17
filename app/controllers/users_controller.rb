@@ -110,10 +110,10 @@ class UsersController < ApplicationController
   end
   
   def suggest_game
-    similar_games = Similarity.where("game1_id = ? OR game2_id = ?", params[:game_id].to_i, params[:game_id].to_i).order(sim_index: :desc).limit(10)
+    @user = User.find(params[:id])
+    similar_games = Similarity.where("game1_id = ? AND game2_id NOT IN (?) OR game2_id = ? AND game1_id NOT IN (?)", params[:game_id].to_i,@user.games.pluck(:id), params[:game_id].to_i, @user.games.pluck(:id)).order(sim_index: :desc).limit(10)
     @game_to_compare = Game.find(params[:game_id].to_i)
     unless params[:add_game].nil?
-      @user = User.find(params[:id])
       unless BggAccount.where("user_id = ? AND game_id = ?", @user, params[:add_game]).exists?
         @user.bgg_accounts.create(game: Game.find(params[:add_game].to_i), favorite: "f")
       end

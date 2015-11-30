@@ -1,7 +1,7 @@
 namespace :games do
   desc "TODO"
   task seed_games: :environment do
-    for i in 281..420
+    for i in 421..600
       if Game.create_game(i)
         sleep(1)
       else
