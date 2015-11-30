@@ -87,11 +87,13 @@
   <span class="game-list">
     <div style= "text-align: center">Click a game to find more games like it!</div>
     <div style= "text-align: center">Mouseover to get game info</div>
-    <ul class = "information">
+    <ul class = "information" style="list-style-type:none">
       <% for game in @all_games do %>
       <%# for game in Game.all do %> 
         <li>
+          <%= link_to image_tag("delete_sign.png"), delete_game_path(:game_id => game.id) %>
         <%= link_to game.bgname, suggest_game_path(:game_id => game.id) %>
+        
         <span>
           <%= image_tag(game.thumbnail) %></br>
           Year: <%= game.yearpublished %></br>

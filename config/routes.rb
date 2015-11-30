@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'users/:id/collection' => 'users#collection', as: :collection
   get 'users/:id/find_game' => 'users#find_game', as: :find_game
   get 'users/:id/suggest_game' => 'users#suggest_game', as: :suggest_game
+  get 'user/:id/delete_game' => 'users#delete_game', as: :delete_game
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

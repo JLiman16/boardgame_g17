@@ -129,6 +129,12 @@ class UsersController < ApplicationController
     find_game
     render :find_game
   end
+  
+  def delete_game
+    @user = User.find(params[:id])
+    BggAccount.where("game_id = ?", params[:game_id]).where("user_id = ?", @user.id).destroy_all
+    redirect_to find_game_path
+  end
 
   private
     
