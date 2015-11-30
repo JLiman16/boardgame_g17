@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(version: 20151128220841) do
     t.string   "thumbnail"
   end
 
+<<<<<<< HEAD
+=======
+  add_index "games", ["bgg_account_id"], name: "index_games_on_bgg_account_id"
+  
+>>>>>>> a85ceb133943a0555363374268e673a2c98e7dfa
   create_table "games_mechanics", id: false, force: :cascade do |t|
     t.integer "mechanic_id"
     t.integer "game_id"

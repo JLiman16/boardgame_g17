@@ -23,11 +23,32 @@ body {
     list-style-type: none;
 }
 
+#nav-options li {
+  margin: 0px 50px 0px 50px;
+}
+
 #nav-user {
   display: inline;
 	font-family: Futura, Tahoma, sans-serif;
 	color: white;
 	padding: 5px;
+}
+
+#activity_box {
+  background-color: black;
+  width: 500px;
+  padding: 10px;
+  margin: 100px 0px 0px 100px;
+  float: left;
+}
+
+#status_box {
+  background-color: cornflowerblue;
+  width: 200px;
+	border-radius: 25px;  
+  padding: 5px 20px;
+  float: left;
+  margin: 20px 0px 0px 200px;
 }
 
 .opts {
@@ -36,7 +57,7 @@ body {
 	font-family: Futura, Tahoma, sans-serif;
 	color: white;
 	padding: 5px 20px;
-	border-radius: 25px 25px;
+	border-radius: 25px;
 	background-color: cornflowerblue;
 	transition: all 0.5s;
 	cursor: pointer;
@@ -129,6 +150,7 @@ body {
   float: left; 
   padding: 5px;
   margin-left: 30px;
+  margin-bottom: 10px;
   font-family: cursive;
 }
 
@@ -151,6 +173,17 @@ body {
 
 .profile_pic {
   max-width: 200px;
+  margin: 100px 0px 20px 200px;
+  float: left;
+}
+
+.status_box_text {
+  color: white;
+  font-family: cursive;  
+}
+
+.status_box_text2 {
+  font-family: cursive;    
 }
 
 ul.information span{
