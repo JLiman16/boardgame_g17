@@ -46,10 +46,18 @@ body {
   margin: 10px 10px 0px 10px;
 }
 
+#collection_box a{
+  color: white;
+  font-size: 400%;
+}
+
 #status_box {
   background-color: #3D9BE9;
   width: 200px;
 	border-radius: 25px;  
+	border-width: 5px;
+	border-style: none solid solid none;
+	border-color: darkblue;
   padding: 5px 20px;
   float: left;
   margin: 20px 0px 0px 200px;
