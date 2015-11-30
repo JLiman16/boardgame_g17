@@ -1,13 +1,15 @@
 <div class="container">
     <% if logged_in? %>
         <div id="navbar">
-            <ul id="nav-options">
-                <li id="nav-user"><b><%= current_user.username %></b></li>
-                <li class="opts"><span><%= link_to "My Profile", current_user %></span></li>
-                <li class="opts"><span><%= link_to "Find a Game", find_game_path(current_user) %></span></li>
-                <li class="opts"><span><%= link_to "Edit Profile", edit_user_path(current_user) %></span></li>
-                <li class="opts"><span><%= link_to "Log out", logout_path, method: "delete" %></span></li> 
-            </ul>
+            <table style="margin-left: auto; margin-right: auto; margin-top: 50px">
+              <tr>   
+                <td id="nav-user"><b><%= current_user.username %></b></td>
+                <td class="opts"><span><%= link_to "My Profile", current_user %></span></td>
+                <td class="opts"><span><%= link_to "Find a Game", find_game_path(current_user) %></span></td>
+                <td class="opts"><span><%= link_to "Edit Profile", edit_user_path(current_user) %></span></td>
+                <td class="opts"><span><%= link_to "Log out", logout_path, method: "delete" %></span></td> 
+              </tr>
+            </table>
         </div>
       <% else %>
         <%= link_to "Log in", login_path, class: "opts" %>

@@ -35,7 +35,12 @@
   src: local('Pacifico Regular'), local('Pacifico-Regular'), url(http://themes.googleusercontent.com/static/fonts/pacifico/v5/yunJt0R8tCvMyj_V4xSjafesZW2xOQ-xsNqO47m55DA.woff) format('woff');
 }
 
-
+@font-face { /*NOT WORKING*/
+  font-family: 'Niconne';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Niconne'), local('Niconne-Regular'), url(http://themes.googleusercontent.com/static/fonts/niconne/v1/Pt5YCk9yiMzehxqMoOcZoQ.woff) format('woff');
+}
 
 body{
   background-color:#222222;
@@ -53,8 +58,8 @@ h1{
 }
 
 h1 a{
-  color:#FFDD1B;
-  font-family:Cursive;
+  color: white;
+  font-family:sans-serif;
 }
 h1 a:hover{ 
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
@@ -88,8 +93,9 @@ p2{
 }
 
 p2 a{
-  color:#FF1177;
-  font-family:Cursive;
+  color: white;
+  font-family: Niconne; /*NOT WORKING*/
+  font-size: 400%;
 }
 p2 a:hover{
   -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
@@ -116,8 +122,8 @@ p:nth-child(1) a:hover{
 
 p:nth-child(2) a{
   font-size:1.5em;
-  color:#FF1177;
-  font-family:Iceland;
+  color: red;
+  font-family: sans-serif;
 }
 p:nth-child(2) a:hover{
   -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
