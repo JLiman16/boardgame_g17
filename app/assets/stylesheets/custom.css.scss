@@ -7,9 +7,9 @@ body {
 }
 
 .row {
-  border: 2px solid #000000;
+  border: 4px solid #333333;
   border-radius: 10px;
-  background-color: #3D9BE9;
+  background-color:BBBBBB;
   margin: auto;
   width: 350px;
 }
@@ -117,22 +117,23 @@ body {
 .btn {
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #66CCFF;
+  background-color:#7B7B7B;
   font-size: 20px;
   font-family: Futury;
   color: white;
 }
 
 .btn:hover {
-  background-color: #3399FF;
+  
+  background-color: #7D7DFF;
 }
 
 .btn:active {
-  background-color: #0066FF;
+  background-color: #7B7B7B;
 }
 
 .btn-primary {
-  font-family: sans-serif;
+  font-family: Iceland;
 }
 
 .form-control {
@@ -140,9 +141,10 @@ body {
 }
 
 .form-label {
-  color: white;
-  font-family: sans-serif;
+  color: #FFDD1B;
+  font-family: Iceland;
 }
+
 
 .alert-danger {
   background-color: #FFCCCC;

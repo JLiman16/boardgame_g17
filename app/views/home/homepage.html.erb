@@ -4,16 +4,15 @@
 
   
   
+<div class="col-md-6 col-md-offset-3">
+  
+  
   
 <div id="container">
 <h1><a>Log in</a></h1>
 </div>
 
 
-
-
-
-  <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
 
       <table>
@@ -28,12 +27,12 @@
         </tr>
       </table>
 
-      <%= f.label :remember_me, class: "checkbox-inline" do %>
+        <%= f.label :remember_me, class: "checkbox-inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <color:#FFDD1B font-family:Iceland><span>Remember me on this computers</span>
       <% end %>
 
-      <p><%= f.submit "Log in", class: "btn btn-primary" %></p>
+      <p><%= f.submit "Log in",class: "btn btn-primary"%></p>
     <% end %>
 
     <p><a>New user?  </a><%= link_to "Sign up now!", signup_path %></p>

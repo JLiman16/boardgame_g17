@@ -58,8 +58,8 @@ h1{
 }
 
 h1 a{
-  color: white;
-  font-family:sans-serif;
+  color:#FFDD1B;
+  font-family:Iceland;
 }
 h1 a:hover{ 
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
@@ -98,6 +98,7 @@ p2 a:hover{
   animation: neon1 1.5s ease-in-out infinite alternate; 
 }
 
+
 a{
   text-decoration:none; 
   -webkit-transition: all 0.5s;
@@ -115,6 +116,10 @@ p:nth-child(1) a:hover{
   animation: neon1 1.5s ease-in-out infinite alternate; 
 }
 
+span{
+  color:#FFDD1B;
+  font-family:Iceland;
+}
 p:nth-child(2) a{
   font-size:1.5em;
   color: red;
@@ -127,8 +132,9 @@ p:nth-child(2) a:hover{
 }
 
 p:nth-child(3) a{
+  font-size:1.5em;
   color:#FFDD1B;
-  font-family:Pacifico;
+  font-family:Iceland;
 }
 p:nth-child(3) a:hover{ 
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
