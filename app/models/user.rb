@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     
     for game in collection_docs.css('item') do
       if Game.exists?(bggid: game['objectid']) then
-        self.bgg_accounts.create(game: Game.find_by_bggid(game['objectid']), account_name: username)
+        self.bgg_accounts.create(game: Game.find_by_bggid(game['objectid']), account_name: username, favorite: "f")
       else
         game_info = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi2/thing?id=' + game['objectid']))
         new_game = Game.new
