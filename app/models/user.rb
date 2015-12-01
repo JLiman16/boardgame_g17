@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
         new_game.bggid = game['objectid']
         new_game.bgname = game_info.css('name')[0]["value"]
         new_game.save()
-        self.bgg_accounts.create(game: new_game, account_name: username)
+        self.bgg_accounts.create(game: new_game, account_name: username, favorite: "f")
         new_game.yearpublished = game_info.css('yearpublished')[0]["value"]
         new_game.minplayers = game_info.css('minplayers')[0]["value"]
         new_game.maxplayers = game_info.css('maxplayers')[0]["value"]
