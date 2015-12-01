@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="121921">
+         <thumbnail>//cf.geekdo-images.com/images/pic1715554_t.jpg</thumbnail>
+      <image>//cf.geekdo-images.com/images/pic1715554.jpg</image>
+                                     				
+				<name type="primary" sortindex="1" value="Robinson Crusoe: Adventures on the Cursed Island" />
+			
+						                               				
+				<name type="alternate" sortindex="1" value="Robinson Crusoe: Abenteuer auf der verfluchten Insel" />
+			    				
+				<name type="alternate" sortindex="1" value="Robinson Crusoe: Adventure on the Cursed Island" />
+			    				
+				<name type="alternate" sortindex="1" value="Robinson Crusoe: Aventuras en la isla maldita" />
+			    				
+				<name type="alternate" sortindex="1" value="Robinson Crusoé: Aventures sur l&#039;île maudite" />
+			    				
+				<name type="alternate" sortindex="1" value="Robinson Crusoe: Przygoda na przeklętej wyspie" />
+			    				
+				<name type="alternate" sortindex="1" value="Robinson Crusoe: Viaggio verso l&#039;Isola Maledetta" />
+			    				
+				<name type="alternate" sortindex="1" value="Robinson Crusoes Vermächtnis" />
+			    				
+				<name type="alternate" sortindex="1" value="Робинзон Крузо: Приключения на таинственном острове" />
+			    				
+				<name type="alternate" sortindex="1" value="鲁滨逊漂流记：诅咒岛之迷" />
+			    				
+				<name type="alternate" sortindex="1" value="로빈슨 크루소: 저주받은 섬의 모험" />
+			
+						               													<description>Robinson Crusoe: Adventures on the Cursed Island is a game created by Ignacy Trzewiczek, the author of Stronghold. This time Trzewiczek takes the players to a deserted island, where they'll play the parts of shipwreck survivors confronted by an extraordinary adventure. They'll be faced with the challenges of building a shelter, finding food, fighting wild beasts, and protecting themselves from weather changes. Building walls around their homes, animal domestication, constructing weapons and tools from what they find and much more awaits them on the island. The players decide in which direction the game will unfold and &amp;ndash; after several in-game weeks of hard work &amp;ndash; how their settlement will look. Will they manage to discover the secret of the island in the meantime? Will they find a pirate treasure, or an abandoned village? Will they discover an underground city or a cursed temple at the bottom of a volcano? Answers to these questions lie in hundreds of event cards and hundreds of object and structure cards that can be used during the game...&amp;#10;&amp;#10;Robinson Crusoe: Adventures on the Cursed Island is an epic game from Portal. You will build a shelter, palisade, weapons, you will create tools like axes, knives, sacks, you will do everything you can to&amp;hellip; to survive. You will have to find food, fight wild beasts, protect yourself from weather changes&amp;hellip;&amp;#10;&amp;#10;Take the role of one of four characters from the ship crew (cook, carpenter, explorer or soldier) and face the adventure. Use your determination skills to help your team mates, discuss with them your plan and put it into practice. Debate, discuss, and work on the best plan you all can make.&amp;#10;&amp;#10;Search for treasures. Discover mysteries. Follow goals of six different, engaging scenarios. Start by building a big pile of wood and setting it on fire to call for help, and then start new adventures. Become an exorcist on cursed Island. Become a treasure hunter on Volcano Island. Become a rescue team for a young lady who&amp;rsquo;s stuck on rock island&amp;hellip;&amp;#10;&amp;#10;Let the adventure live!&amp;#10;&amp;#10;Robinson Crusoe: Adventures on the Cursed Island is a co-op game that brings emotions to life from the best novels of Jules Verne and Daniel Defoe. Simple rules are perfectly combined with theme, and allow players to fully imagine dreadful events that take place on a deserted island.&amp;#10;&amp;#10;</description>
+										      	               				<yearpublished value="2012" />
+						               				<minplayers value="1" />
+						               				<maxplayers value="4" />
+						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="280">
+			
+		<results numplayers="1">		
+					<result value="Best" numvotes="72" />
+					<result value="Recommended" numvotes="144" />
+					<result value="Not Recommended" numvotes="16" />
+				</results>					
+			
+		<results numplayers="2">		
+					<result value="Best" numvotes="79" />
+					<result value="Recommended" numvotes="147" />
+					<result value="Not Recommended" numvotes="5" />
+				</results>					
+			
+		<results numplayers="3">		
+					<result value="Best" numvotes="115" />
+					<result value="Recommended" numvotes="99" />
+					<result value="Not Recommended" numvotes="5" />
+				</results>					
+			
+		<results numplayers="4">		
+					<result value="Best" numvotes="59" />
+					<result value="Recommended" numvotes="138" />
+					<result value="Not Recommended" numvotes="18" />
+				</results>					
+			
+		<results numplayers="4+">		
+					<result value="Best" numvotes="1" />
+					<result value="Recommended" numvotes="6" />
+					<result value="Not Recommended" numvotes="114" />
+				</results>					
+	</poll> 
+			               				<playingtime value="180" />
+						               				<minplaytime value="90" />
+						               				<maxplaytime value="180" />
+						               				<minage value="14" />
+						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="85">
+			<results>		
+					<result value="2" numvotes="0" />
+					<result value="3" numvotes="0" />
+					<result value="4" numvotes="0" />
+					<result value="5" numvotes="0" />
+					<result value="6" numvotes="2" />
+					<result value="8" numvotes="18" />
+					<result value="10" numvotes="22" />
+					<result value="12" numvotes="30" />
+					<result value="14" numvotes="11" />
+					<result value="16" numvotes="2" />
+					<result value="18" numvotes="0" />
+					<result value="21 and up" numvotes="0" />
+				</results>					
+	</poll> 
+			      			<poll name="language_dependence" title="Language Dependence" totalvotes="117">
+			
+		<results>		
+					<result level="1" value="No necessary in-game text" numvotes="0" />
+					<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="2" />
+					<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="5" />
+					<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="96" />
+					<result level="5" value="Unplayable in another language" numvotes="14" />
+				</results>					
+	</poll> 
+			      			 
+			      				
+		 			
+
+			
+		
+					<link type="boardgamecategory" id="1022" value="Adventure" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamecategory" id="1020" value="Exploration" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamecategory" id="1093" value="Novel-based" />
+		
+									
+			
+
+			      				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2023" value="Co-operative Play" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2072" value="Dice Rolling" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2011" value="Modular Board" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2020" value="Simultaneous Action Selection" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2002" value="Tile Placement" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2015" value="Variable Player Powers" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamemechanic" id="2082" value="Worker Placement" />
+		
+									
+			
+
+			      				
+		 			
+
+			
+		
+					<link type="boardgamefamily" id="26563" value="Robinson Crusoe: Adventure on the Cursed Island" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamefamily" id="5666" value="Solitaire Games" />
+		
+									
+			
+
+			      				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="156413" value="Robinson Crusoe: Adventure on the Cursed Island – Beach Card Mini Expansion" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="149350" value="Robinson Crusoe: Adventure on the Cursed Island – Beast Cards" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="157040" value="Robinson Crusoe: Adventure on the Cursed Island – Dreadful adventure on the King Kong Island" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="168588" value="Robinson Crusoe: Adventure on the Cursed Island – Gamer character" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="175182" value="Robinson Crusoe: Adventure on the Cursed Island – Hunting Dog" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="156823" value="Robinson Crusoe: Adventure on the Cursed Island – Sailor character" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="185797" value="Robinson Crusoe: Adventure on the Cursed Island – Schatzkiste" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="180550" value="Robinson Crusoe: Adventure on the Cursed Island – Secret Trait Cards" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="162604" value="Robinson Crusoe: Adventure on the Cursed Island – Spyglass of Illusory Hope" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="162959" value="Robinson Crusoe: Adventure on the Cursed Island – Tracing Doctor Livingstone" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="132445" value="Robinson Crusoe: Adventure on the Cursed Island – Trait Cards I" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="150194" value="Robinson Crusoe: Adventure on the Cursed Island – Trait Cards II" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="170907" value="Robinson Crusoe: Adventure on the Cursed Island – Treasure Island Junior" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="144722" value="Robinson Crusoe: Adventure on the Cursed Island – Voyage of the Beagle (Vol. 1)" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="179658" value="Robinson Crusoe: Discovery Tokens" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameexpansion" id="168032" value="Robinson Crusoe: Promo pack" />
+		
+									
+			
+
+			      			
+
+			      			
+
+			      			
+
+			      			
+
+			      			
+
+			      			
+
+			      	      	      				
+		 			
+
+			
+		
+					<link type="boardgamedesigner" id="4735" value="Ignacy Trzewiczek" />
+		
+									
+			
+
+			      				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="63787" value="Tomasz Bentkowski" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="38917" value="Mateusz Bielski" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="80458" value="Jerzy Ferdyn" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="80457" value="Mateusz Kopacz" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="63785" value="Mateusz Lenart" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="69434" value="Maciej Mutwil" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="66798" value="Zhao Run Quan" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="21002" value="Rafał Szyma" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="38138" value="Piotr Słaby" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="4735" value="Ignacy Trzewiczek" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgameartist" id="12540" value="Michał J. Zieliński" />
+		
+									
+			
+
+			      	      				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="2726" value="Portal Games" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="23205" value="DiceTree Games" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="2973" value="Edge Entertainment" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="5657" value="Filosofia Éditions" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="18852" value="Hobby World" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="23756" value="MYBG Co., Ltd." />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="39" value="Pegasus Spiele" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="17786" value="uplay.it edizioni" />
+		
+									
+				
+		 			
+
+			
+		
+					<link type="boardgamepublisher" id="538" value="Z-Man Games" />
+		
+									
+			
+
+			
+	
+
+	
+
+	
+	
+	
+   
+	
+          
+</item>
+</items>
