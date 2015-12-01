@@ -2,31 +2,34 @@
 
 <%= render "shared/navbar" %>
 
-<span><%= image_tag @user.picture.url, :class => "profile_pic"  if @user.picture? %></span>
-
-<div id="status_box">
-  <span class="status_box_text">Username:</span><br>
-  <span class="status_box_text2"><%= @user.username %></span><br><br>
-  <span class="status_box_text">Last Login:</span><br>
-  <% unless @user.last_login.nil? %>
-    <span class="status_box_text2"><%= time_ago_in_words(@user.last_login) %> ago</span>
-  <% end %>
-</div>
-
-<div id="activity_box">
-  <div id="collection_box">
-    <p2><a><%= link_to "View Collection", collection_path %></br></a></p2>
-  </div>
-  <span class="game_event">
-    <br>
-    <div style="margin: 0px 0px 0px 10px">
-      Recent Activity</br>
-      <% for game in @user.bgg_accounts.order(created_at: :desc).limit(10) %>
-        <%= time_ago_in_words(game.created_at) %> ago: Added <%= Game.find(game.game_id).bgname %> to their collection </br>
+<table>
+  <tr>
+    <td><%= image_tag @user.picture.url, :class => "profile_pic"  if @user.picture? %></td>
+    <td id="activity_box">
+      <div id="collection_box">
+        <p2><a><%= link_to "View Collection", collection_path %></br></a></p2>
+      </div>
+      <span class="game_event">
+        <br>
+        <div style="margin: 0px 0px 0px 10px">
+          Recent Activity</br>
+          <% for game in @user.bgg_accounts.order(created_at: :desc).limit(10) %>
+            <%= time_ago_in_words(game.created_at) %> ago: Added <%= Game.find(game.game_id).bgname %> to their collection </br>
+          <% end %>
+        </div>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td id="status_box">
+      <span class="status_box_text">Username:</span><br>
+      <span class="status_box_text2"><%= @user.username %></span><br><br>
+      <span class="status_box_text">Last Login:</span><br>
+      <% unless @user.last_login.nil? %>
+        <span class="status_box_text2"><%= time_ago_in_words(@user.last_login) %> ago</span>
       <% end %>
-    </div>
-  </span>
-</div>
+    <td>
+  </tr>
 
-<br>
-
+    
+</table>
