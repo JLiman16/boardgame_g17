@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   
   def unlink_account
     @user = User.find(params[:id])
-    for game in BggAccount.where(account_name: params[:account])
+    for game in @user.bgg_accounts.where(account_name: params[:account])
       game.destroy
     end
     @user.accounts.delete(params[:account])
@@ -135,9 +135,10 @@ class UsersController < ApplicationController
     BggAccount.where("game_id = ?", params[:game_id]).where("user_id = ?", @user.id).destroy_all
     redirect_to find_game_path
   end
+    
 
   private
-    
+  
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :picture)
   end

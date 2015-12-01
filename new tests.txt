@@ -1,0 +1,16 @@
+home_controller_test.rb
+-should get homepage: testing getting the homepage
+-home title: testing the title of the homepage. should be "Bored?Game!"
+
+site_layout_test.rb
+-layout links: tests that the home page contains a link to the sign up page. then tests that the title of the signup page is "Sign up | Bored?Game!"
+
+user_test.rb
+-name should not be too long: testing for users with a username that's too long (max is 50 characters)
+
+users_signup_test.rb
+-invalid signup information: tests that if someone tries to sign up with invalid information, no new user is created and the total number of user remains the same 
+-valid signup information: tests that if someone tries to sign up with valid information, a new user is created and the total number of users go up by 1
+
+users_login_test.rb
+-login with invalid information: tests that if a user tries to login with invalid information, they will be redirected back to the login page and an error shows up. also tests that the error message is not persistent by going to the home page.

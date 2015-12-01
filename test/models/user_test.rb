@@ -51,4 +51,13 @@ class UserTest < ActiveSupport::TestCase
       )
     assert_not user.valid?
   end
+  
+  test "name should not be too long" do
+    user = User.new(
+      username: "a" * 51,
+      password: "testpassword",
+      password_confirmation: "testpassword"
+      )
+    assert_not user.valid?
+  end
 end
