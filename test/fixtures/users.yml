@@ -6,4 +6,5 @@
 brandon:
     username: Brandon
     id: 1
+    password_digest: <%= User.digest('password') %>
     accounts: []
