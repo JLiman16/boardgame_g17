@@ -2,19 +2,16 @@
 
 <%= render "shared/navbar" %>
 
-<br>
-
 <% if Delayed::Job.exists? %>
   <span id="acc-process">We are currently processing an account for you, please note this may take a long time for large accounts (approximately 1 second per game), you can click below to refresh</span>
   <%= link_to "Refresh" %>
 <% end %>
 
 <% unless Delayed::Job.exists? %>
-  <div style = "width: 40%; float: left">
+  <div style = "max-width: 22%; float: left">
     <div class="game-list">  
       <p1><a>Add a Boardgame geek account to sync with here!</a></p1>
       <%= form_tag(link_path, method: "get") do %>
-        <br>
         <p2><a>Account name</a></p2>
           <%= text_field_tag(:account_name) %>
           </br>
@@ -22,7 +19,6 @@
       <% end %>
     
       <% if @user.accounts.count > 0 %>
-        <br>
         <b>Synced Accounts</b></br>
         <% for account in @user.accounts do %>
           <%= account %>
@@ -40,74 +36,57 @@
       <%= sortable("Max Players", 'maxplayers') %></br>
       <%= sortable("Game Time", 'playingtime') %></br>
       
-      <br>
       <b>Filters</b>
       <%= form_tag(filter_path) do %>
         <%= label_tag(:favorites, "Favorites") %>
         <%= check_box_tag(:favorites) %> </br>
-        <br>
         <%= label_tag(:max_age, "Maximum Age") %></br>
         <%= number_field_tag(:max_age, "Max", in: 1..100, class: 'filter') %></br>
-        <br>
         <%= label_tag(:min_age, "Minimum Age") %></br>
         <%= number_field_tag(:min_age, "Min", in: 0..100, class: 'filter') %></br>
-        <br>
         <%= label_tag(:num_players, "Number of Players") %></br>
         <%= number_field_tag(:num_players, "Min",  in: 0..1000, class: 'filter') %></br>
-        <br>
         <%= label_tag(:min_time, "Minimum time (mins)") %></br>
         <%= number_field_tag(:min_time, "Min", in: 0..10000, class: 'filter') %></br>
-        <br>
         <%= label_tag(:max_time, "Maximum time (mins)") %></br>
         <%= number_field_tag(:max_time, "Max", in: 0..10000, class: 'filter') %></br>
-        <br>
         <%= label_tag(:game_mechanic, "Mechanic") %></br>
         <%= select_tag(:game_mechanic, options_from_collection_for_select(Mechanic.all, :boardgamemechanic, :boardgamemechanic), include_blank: "Select Mechanic", class: 'filter') %></br>
-        <br>
         <%= label_tag(:game_category, "Category") %></br>
         <%= select_tag(:game_category, options_from_collection_for_select(Category.all, :boardgamecategory, :boardgamecategory), include_blank: "Select Category", class: 'filter') %></br>
-        <br>
-        <div style="text-align:center"><%= submit_tag("Filter") %></div>
+        <%= submit_tag("Filter") %>
       <% end %>
 
       Current Filters:
       <% unless params[:max_age].to_i == 1000 %>
-        <br>
         Age < <%=params[:max_age] %>
       <% end %>
       <% unless params[:min_age].to_i == 0 %>
-        <br>
         Age > <%=params[:min_age] %>
       <% end %>
       <% unless params[:num_players].to_i == 0 %>
-        <br>
         Number of players = <%=params[:num_players] %>
       <% end %>
       <% unless params[:min_time].to_i == 0 %>
-        <br>
         Time > <%=params[:min_time] %>
       <% end %>
       <% unless params[:max_time].to_i == 10000 %>
-        <br>
         Time < <%=params[:max_time] %>
       <% end %>
       <% unless params[:game_mechanic].blank? %>
-        <br>
         Mechanic = <%=params[:game_mechanic] %>
       <% end %>
       </br>
       <% unless params[:game_category].blank? %>
-        <br>
         Category = <%=params[:game_category] %>
       <% end %>
       <% unless params[:favorites].blank? %>
-        <br>
         Favorites
       <% end %>
     </div>
   </div>  
   
-  <span class="game-list2">
+  <span class="game-list">
     <div style= "text-align: center">Click a game to find more games like it!</div>
     <div style= "text-align: center">Mouseover to get game info</div>
     <ul class = "information" style="list-style-type:none">
@@ -139,7 +118,7 @@
   </span>
   
   <% unless @suggestions.nil? %>
-    <span class="game-list2">
+    <span class="game-list">
       <div style = "text-align: center">Games similar to <%= @game_to_compare.bgname %></div>
       <div style = "text-align: center">Click a game to add it to your collection</div>
       <ul class = "information">
