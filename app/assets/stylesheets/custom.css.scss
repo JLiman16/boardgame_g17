@@ -180,9 +180,21 @@ body {
   background-color: white;
   float: left; 
   padding: 5px;
-  margin-left: 30px;
+  margin-left: 70%;
   margin-bottom: 10px;
-  font-family: cursive;
+  font-family: sans-serif;
+}
+
+.game-list2 {
+  border-collapse:collapse; 
+  border: 5px solid purple;
+  border-radius: 25px;
+  background-color: white;
+  float: left; 
+  padding: 5px;
+  margin-left: 180px;
+  margin-bottom: 10px;
+  font-family: sans-serif;
 }
 
 .game_name {
@@ -199,7 +211,27 @@ body {
 
 .game_event {
   color: white;
-  font-family: cursive;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 150%;
+}
+
+.game_event2 {
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 200%;
+}
+
+.game_event3 {
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 150%;
+}
+
+.picture {
+  margin: 0px 0px 0px 70px;
 }
 
 .profile_pic {
