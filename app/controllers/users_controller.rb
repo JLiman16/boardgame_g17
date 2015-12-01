@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   
   def unlink_account
     @user = User.find(params[:id])
-    for game in BggAccount.where(account_name: params[:account])
+    for game in @user.bgg_accounts.where(account_name: params[:account])
       game.destroy
     end
     @user.accounts.delete(params[:account])
@@ -110,10 +110,10 @@ class UsersController < ApplicationController
   end
   
   def suggest_game
-    @user = User.find(params[:id])
-    similar_games = Similarity.where("game1_id = ? AND game2_id NOT IN (?) OR game2_id = ? AND game1_id NOT IN (?)", params[:game_id].to_i,@user.games.pluck(:id), params[:game_id].to_i, @user.games.pluck(:id)).order(sim_index: :desc).limit(10)
+    similar_games = Similarity.where("game1_id = ? OR game2_id = ?", params[:game_id].to_i, params[:game_id].to_i).order(sim_index: :desc).limit(10)
     @game_to_compare = Game.find(params[:game_id].to_i)
     unless params[:add_game].nil?
+      @user = User.find(params[:id])
       unless BggAccount.where("user_id = ? AND game_id = ?", @user, params[:add_game]).exists?
         @user.bgg_accounts.create(game: Game.find(params[:add_game].to_i), favorite: "f")
       end
@@ -128,12 +128,6 @@ class UsersController < ApplicationController
     end
     find_game
     render :find_game
-  end
-  
-  def delete_game
-    @user = User.find(params[:id])
-    BggAccount.where("game_id = ?", params[:game_id]).where("user_id = ?", @user.id).destroy_all
-    redirect_to find_game_path
   end
 
   private
