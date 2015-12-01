@@ -2,24 +2,30 @@
 
 <%= render "shared/navbar" %>
 
+<br>
+
 <div class="game_event">
     Find a user and view their collection
+    <%= form_tag(users_path, method: "get") do %>
+        <%= text_field_tag(:user_wanted) %>
+        <%= submit_tag("Search") %>
+    <% end %>
 </div>
 
-<%= form_tag(users_path, method: "get") do %>
-    <%= text_field_tag(:user_wanted) %>
-    <%= submit_tag("Search") %>
-<% end %>
+<br>
+<br>
 
-<div class="game_event">
-    Currently viewing <%= @user.username %>'s collection
+<div class="game_event2">
+    Currently viewing <span style="color:darkred"><%= @user.username %>'s</span> collection
 </div>
 
 <% if @user == current_user %>
-    <div class="game_event" style="text-align:center">
-        Click the star to make a game a favorite
+    <div class="game_event3" style="text-align:center">
+        (Click the star to favorite a game)
     </div>
 <% end %>
+
+<br>
 
 <table style="margin-left: auto; margin-right: auto">
     <% @all_games.in_groups_of(4) do |games| %>

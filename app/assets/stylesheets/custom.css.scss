@@ -6,10 +6,15 @@ body {
   background-size: 100%;
 }
 
+
 .row {
   border: 4px solid #333333;
   border-radius: 10px;
+<<<<<<< HEAD
   background-color:BBBBBB;
+=======
+  background-color: #336699;
+>>>>>>> 00d09d5d72f4fce5aaa21c44ef2565d0c7ab4794
   margin: auto;
   width: 350px;
 }
@@ -32,11 +37,12 @@ body {
 }
 
 #activity_box {
+  position: absolute;
+  top: 25%;
+  left: 50%;
   background-color: black;
   width: 500px;
   padding: 10px;
-  margin: 100px 100px 0px 0px;
-  float: Left;
 }
 
 #collection_box {
@@ -52,14 +58,17 @@ body {
 }
 
 #status_box {
+  position: absolute;
+  top: 75%;
+  right: 65%;
   background-color: #3D9BE9;
-  width: 200px;
+  height: 100px;
+  width: 210px;
 	border-radius: 25px;  
 	border-width: 5px;
 	border-style: none solid solid none;
 	border-color: darkblue;
   padding: 5px 20px;
-  margin: 20px 0px 0px 200px;
 }
 
 .opts {
@@ -179,7 +188,19 @@ body {
   padding: 5px;
   margin-left: 30px;
   margin-bottom: 10px;
-  font-family: cursive;
+  font-family: sans-serif;
+}
+
+.game-list2 {
+  border-collapse:collapse; 
+  border: 5px solid purple;
+  border-radius: 25px;
+  background-color: white;
+  float: left; 
+  padding: 5px;
+  margin-left: 180px;
+  margin-bottom: 10px;
+  font-family: sans-serif;
 }
 
 .game_name {
@@ -196,12 +217,35 @@ body {
 
 .game_event {
   color: white;
-  font-family: cursive;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 150%;
+}
+
+.game_event2 {
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 200%;
+}
+
+.game_event3 {
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 150%;
+}
+
+.picture {
+  margin: 0px 0px 0px 70px;
 }
 
 .profile_pic {
-  max-width: 200px;
-  margin: 100px 0px 20px 200px;
+  position: absolute;
+  top: 25%;
+  right: 65%;
+  height: 250px;
+  width: 250px;
 }
 
 .status_box_text {
