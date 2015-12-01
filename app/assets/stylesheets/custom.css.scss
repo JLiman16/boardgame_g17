@@ -33,11 +33,12 @@ body {
 }
 
 #activity_box {
+  position: absolute;
+  top: 25%;
+  left: 50%;
   background-color: black;
   width: 500px;
   padding: 10px;
-  margin: 100px 500px 0px 0px;
-  float: right;
 }
 
 #collection_box {
@@ -53,14 +54,17 @@ body {
 }
 
 #status_box {
+  position: absolute;
+  top: 75%;
+  right: 65%;
   background-color: #3D9BE9;
-  width: 200px;
+  height: 100px;
+  width: 210px;
 	border-radius: 25px;  
 	border-width: 5px;
 	border-style: none solid solid none;
 	border-color: darkblue;
   padding: 5px 20px;
-  margin: 150px 0px 0px 400px;
 }
 
 .opts {
@@ -199,8 +203,11 @@ body {
 }
 
 .profile_pic {
-  max-width: 200px;
-  margin: 100px 0px 20px 400px;
+  position: absolute;
+  top: 25%;
+  right: 65%;
+  height: 250px;
+  width: 250px;
 }
 
 .status_box_text {
