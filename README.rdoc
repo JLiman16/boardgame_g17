@@ -1,3 +1,4 @@
 Welcome to our app.
 If you would like to use our app visit
 https://boardgame-g17-epithemeus.c9.io
+(This server is going down, if you'd like to use our code, you'll have to figure out how to run it yourself, sorry!)
